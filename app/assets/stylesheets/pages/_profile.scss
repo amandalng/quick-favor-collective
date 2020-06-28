@@ -1,0 +1,23 @@
+.profile-container {
+  margin-top: 50px;
+  height: 100vh;
+  padding: 16px;
+  background-color: white;
+  border-radius: 50px 50px 0 0;
+  box-shadow: 0 0 4px #888888;
+  position: relative;
+}
+
+.profile-avatar {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+}
+
+.profile-details {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}

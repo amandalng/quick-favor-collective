@@ -15,7 +15,9 @@ class User < ApplicationRecord
 
   has_many :favors
   has_many :referrals
+  has_many :responses
   has_one_attached :photo
+
 
   after_create :send_welcome_email, :send_new_applicant_notification
 

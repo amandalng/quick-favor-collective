@@ -1,46 +1,93 @@
-<div class="profile-container pt-2">
-
-<div class="center my-3">
-  <% if @user.photo.attached? %>
-    <%= cl_image_tag @user.photo.key, height: 85, width: 85, crop: :fill, radius: :max %>
-  <% end %>
+<div class="empty-container">
 </div>
-<h2 class="mb-3 text-center"><%= @user.full_name %></h2>
 
-<p class="text-center"><i class="fas fa-home"></i> &nbsp;<%= @user.city %>  &nbsp;| &nbsp; <i class="fas fa-briefcase"></i>&nbsp; <%= @user.industry%></p>
-
-<p class="my-0"><strong>About</strong>: <%= @user.oneliner %></p>
-<p><strong>Fun fact</strong>: <%= @user.funfact %></p>
-
-<% if current_user.admin == true %>
-  <p><i class="fas fa-envelope"></i>  <%= @user.email %></p>
-<% end %>
-<% if @user.linkedin.present? %>
-  <p><i class="fab fa-linkedin"></i> <a href=<%= @user.linkedin %> target="_blank">See Profile</a></p>
-<% end %>
-
-<% if current_user.admin == true %>
-  <p class="my-0"><strong>Referred by</strong>: <%= @user.referrer %></p>
-
-  <p><strong>Status</strong>:
-    <% if @user.status == "verified" %>
-      Verified Member
+<div class="profile-container">
+  <div class="profile-avatar">
+    <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill, radius: :max, format: :png %>
     <% else %>
-      Unverified Applicant <i class="fas fa-exclamation-circle"></i>
+      <img src="https://image.flaticon.com/icons/svg/1077/1077012.svg" class="avatar" alt="profile-image">
     <% end %>
-  </p>
-<% end %>
+  </div>
 
-<% if @user == current_user %>
-  <%= link_to "Edit Profile", edit_user_registration_path(@user), class: "btn btn-secondary btn-block" %>
-<% end %>
-<% if @user != current_user && current_user.admin == false %>
-  <%= link_to "Want an introduction?", contact_path, class: "btn btn-primary btn-block" %>
-<% end %>
+  <div class="container">
+    <h2 class="mt-3 text-center"><%= @user.full_name %></h2>
 
+    <p class="text-center my-3"><i class="fas fa-home"></i> &nbsp;<%= @user.city %>  &nbsp;| &nbsp; <i class="fas fa-briefcase"></i>&nbsp; <%= @user.industry%></p>
+
+    <p class="my-3 text-center"><%= @user.oneliner %></p>
+
+    <p class="text-center"><%= @user.funfact %> &#9757;</p>
+
+    <% if current_user.admin == true %>
+      <p class="mt-0"><i class="fas fa-envelope"></i> &nbsp;<%= @user.email %></p>
+    <% end %>
+    <% if @user.linkedin.present? %>
+      <p class="mt-0"><i class="fab fa-linkedin"></i> &nbsp;<a href=<%= @user.linkedin %> target="_blank">See Profile</a></p>
+    <% end %>
+
+    <% if current_user.admin == true %>
+      <p class="mb-0"><strong>Referred by</strong>: <%= @user.referrer %></p>
+
+      <p><strong>Status</strong>:
+        <% if @user.status == "verified" %>
+          Verified Member
+        <% else %>
+          Unverified Applicant <i class="fas fa-exclamation-circle"></i>
+        <% end %>
+      </p>
+    <% end %>
+
+    <% if @user == current_user %>
+      <%= link_to "Edit Profile", edit_user_registration_path(@user), class: "btn btn-secondary btn-block" %>
+    <% end %>
+    <% if @user != current_user && current_user.admin == false %>
+      <%= link_to "Want an introduction?", contact_path, class: "btn btn-primary btn-block" %>
+    <% end %>
+  </div>
 </div>
 
-<div class="center">
-</div>
 
-<%= link_to "< back to community", users_path, class: "center mt-2" %>
+<% if false %>
+  <div class="profile-container pt-2">
+
+  <div class="center">
+    <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, height: 85, width: 85, crop: :fill, radius: :max %>
+    <% end %>
+  </div>
+  <h2 class="mb-3 text-center"><%= @user.full_name %></h2>
+
+  <p class="text-center"><i class="fas fa-home"></i> &nbsp;<%= @user.city %>  &nbsp;| &nbsp; <i class="fas fa-briefcase"></i>&nbsp; <%= @user.industry%></p>
+
+  <p class="my-0"><strong>About</strong>: <%= @user.oneliner %></p>
+  <p><strong>Fun fact</strong>: <%= @user.funfact %></p>
+
+  <% if current_user.admin == true %>
+    <p><i class="fas fa-envelope"></i>  <%= @user.email %></p>
+  <% end %>
+  <% if @user.linkedin.present? %>
+    <p><i class="fab fa-linkedin"></i> <a href=<%= @user.linkedin %> target="_blank">See Profile</a></p>
+  <% end %>
+
+  <% if current_user.admin == true %>
+    <p class="my-0"><strong>Referred by</strong>: <%= @user.referrer %></p>
+
+    <p><strong>Status</strong>:
+      <% if @user.status == "verified" %>
+        Verified Member
+      <% else %>
+        Unverified Applicant <i class="fas fa-exclamation-circle"></i>
+      <% end %>
+    </p>
+  <% end %>
+
+  <% if @user == current_user %>
+    <%= link_to "Edit Profile", edit_user_registration_path(@user), class: "btn btn-secondary btn-block" %>
+  <% end %>
+  <% if @user != current_user && current_user.admin == false %>
+    <%= link_to "Want an introduction?", contact_path, class: "btn btn-primary btn-block" %>
+  <% end %>
+
+  </div>
+<% end %>

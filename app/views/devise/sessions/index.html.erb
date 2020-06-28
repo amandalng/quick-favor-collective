@@ -1,79 +1,86 @@
-<h2 class="text-center mb-4">&#129308; Our Community &#129307;</h2>
-<% if false %>
-  <h6 class="mt-0 mb-4 text-center">We're a global network of<br><%= User.count %> members across <%= @cities.count %> cities</h6>
-<% end %>
+<div class="container">
 
-<% if current_user.admin == true %>
+  <h2 class="text-center mb-4">&#129308; Our Community &#129307;</h2>
+  <% if false %>
+    <h6 class="mt-0 mb-4 text-center">We're a global network of<br><%= User.count %> members across <%= @cities.count %> cities</h6>
+  <% end %>
 
-<h5 class="text-center mt-3"><strong>Unverified Members</strong> <i class="fas fa-exclamation-circle"></i></h5>
-<div class="center">
-  <%= link_to "See Referrals", referrals_path, class: "mb-3" %>
+  <% if current_user.admin == true %>
+
+  <h5 class="text-center mt-3"><strong>Unverified Members</strong> <i class="fas fa-exclamation-circle"></i></h5>
+  <div class="center">
+    <%= link_to "See Referrals", referrals_path, class: "mb-3" %>
+  </div>
+
+  <table class="table align-middle">
+    <tbody>
+      <% @users.each do |user| %>
+        <% if user.status == "unverified" %>
+          <tr data-link="<%= user_path(user) %>" >
+            <td class="city-industry">
+              <div class="d-flex">
+              <p><strong><%= user.full_name %></strong></p>
+              <div>
+                <a class="city-industry-tag"><%= user.city %></a>
+                <a class="city-industry-tag"><%= user.industry %></a></div>
+              </div>
+              <p class="mb-2"><%= user.oneliner %></p>
+              <% if @user_names.include?(user.referrer) %>
+                <div class="d-flex">
+                  <p class="flex-grow-1"><strong>Referred by:</strong> <%= user.referrer %> <i class="fas fa-check-circle"></i></p>
+                  <%= link_to "Verify", user_path(user), class: "mr-1", method: "patch", :data => { :confirm => "Are you sure you want to verify this member?" }  %> | <%= link_to "Reject", user_path(user), class: "ml-1", method: "put", :data => { :confirm => "Are you sure you want to reject this member?" }  %>
+                </div>
+              <% else %>
+                <div class="d-flex">
+                  <p class="flex-grow-1"><strong>Referred by:</strong> <%= user.referrer %> <i class="fas fa-times-circle"></i></p>
+                  <%= link_to "Verify", user_path(user), class: "mr-1", method: "patch", :data => { :confirm => "Are you sure you want to verify this member?" }  %> | <%= link_to "Reject", user_path(user), class: "ml-1", method: "put", :data => { :confirm => "Are you sure you want to reject this member?" }  %>
+                </div>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+
+  <h5 class="text-center mt-2 mb-3"><strong>Verified Members</strong></h5>
+
+  <% end %>
+
+  <input type="name" placeholder="Find a member..." class="form-control mt-2 mb-2" id="userSearch" >
+
+  <select id="cities" name="cities" class="btn btn-block btn-secondary">
+    <option> All cities </option>
+    <% @cities.each do |city| %>
+      <option value= <%= city %>> <%= city %> </option>
+    <% end %>
+  </select>
+
+  <select id="industries" name="industries" class="btn btn-block btn-secondary mb-3">
+    <option> All industries </option>
+    <% @industries.each do |industry| %>
+      <option value= <%= industry %>> <%= industry %> </option>
+    <% end %>
+  </select>
+
+  <table class="table align-middle" id="userTable">
+    <tbody>
+      <% @users.each do |user| %>
+        <% if user.status == "verified" %>
+          <tr data-link="<%= user_path(user) %>" class="userRow" >
+            <td class="city-industry">
+              <p class="user-name my-0"><strong><%= user.full_name %></strong></p>
+              <div class="my-1"><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag"><%= user.industry %></a></div>
+              <p class="mb-2"><%= user.oneliner %></p>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
 </div>
 
-<table class="table align-middle">
-  <tbody>
-    <% @users.each do |user| %>
-      <% if user.status == "unverified" %>
-        <tr data-link="<%= user_path(user) %>" >
-          <td class="city-industry">
-            <div class="d-flex">
-            <p><strong><%= user.full_name %></strong></p>
-            <div><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag"><%= user.industry %></a></div>
-            </div>
-            <p class="mb-2"><%= user.oneliner %></p>
-            <% if @user_names.include?(user.referrer) %>
-              <div class="d-flex">
-                <p class="flex-grow-1"><strong>Referred by:</strong> <%= user.referrer %> <i class="fas fa-check-circle"></i></p>
-                <%= link_to "Verify", user_path(user), class: "mr-1", method: "patch", :data => { :confirm => "Are you sure you want to verify this member?" }  %> | <%= link_to "Reject", user_path(user), class: "ml-1", method: "put", :data => { :confirm => "Are you sure you want to reject this member?" }  %>
-              </div>
-            <% else %>
-              <div class="d-flex">
-                <p class="flex-grow-1"><strong>Referred by:</strong> <%= user.referrer %> <i class="fas fa-times-circle"></i></p>
-                <%= link_to "Verify", user_path(user), class: "mr-1", method: "patch", :data => { :confirm => "Are you sure you want to verify this member?" }  %> | <%= link_to "Reject", user_path(user), class: "ml-1", method: "put", :data => { :confirm => "Are you sure you want to reject this member?" }  %>
-              </div>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
-
-
-<h5 class="text-center my-2"><strong>Verified Members</strong></h5>
-
-<% end %>
-
-<p class="text-center mb-2">Search by...</p>
-<select id="cities" name="cities" class="btn btn-block btn-secondary">
-  <option> All cities </option>
-  <% @cities.each do |city| %>
-    <option value= <%= city %>> <%= city %> </option>
-  <% end %>
-</select>
-
-<select id="industries" name="industries" class="btn btn-block btn-secondary mb-3">
-  <option> All industries </option>
-  <% @industries.each do |industry| %>
-    <option value= <%= industry %>> <%= industry %> </option>
-  <% end %>
-</select>
-
-<table class="table align-middle" id="userTable">
-  <tbody>
-    <% @users.each do |user| %>
-      <% if user.status == "verified" %>
-        <tr data-link="<%= user_path(user) %>" class="userRow" >
-          <td class="city-industry">
-            <p class="my-0"><strong><%= user.full_name %></strong></p>
-            <div class="my-1"><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag"><%= user.industry %></a></div>
-            <p class="mb-2"><%= user.oneliner %></p>
-          </td>
-        </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
-
-<%= javascript_pack_tag "dropdown" %>
+<%= javascript_pack_tag "search" %>
 <%= javascript_pack_tag "link" %>

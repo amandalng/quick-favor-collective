@@ -1,24 +1,26 @@
-<% if user_signed_in? %>
-  <h2 class="text-center mb-4">Need some help? &#128521;</h2>
-<% else %>
-  <h2 class="text-center mb-4">Contact Us</h2>
-<% end %>
+<div class="container">
 
-<%= simple_form_for @inquiry do |f| %>
-  <% if user_signed_in? == false %>
-    <%= f.input :subject, collection: [ "Interested to join", "Interested to learn more", "General question", "Other" ] %>
-    <%= f.input :message, :as => :text, :input_html => { 'rows' => 3 } %>
-    <%= f.input :first_name, required: true %>
-    <%= f.input :last_name, required: true %>
-    <%= f.input :email, required: true %>
+  <% if user_signed_in? %>
+    <h2 class="text-center mb-4">Need some help? &#128521;</h2>
   <% else %>
-    <%= f.input :subject, collection: [ "Would like an introduction", "Problem with application", "General question", "Other" ] %>
-    <%= f.input :message, hint: "If you'd like an introduction, please include the full name of the person you'd like to be introduced to.", :as => :text, :input_html => { 'rows' => 4 }, required: true %>
+    <h2 class="text-center mb-4">Contact Us</h2>
   <% end %>
 
-  <div class="center">
-    <%= f.button :submit, 'Submit', class: "btn btn-primary btn-block mt-1 mb-4" %>
-  </div>
-<% end %>
+  <%= simple_form_for @inquiry do |f| %>
+    <% if user_signed_in? == false %>
+      <%= f.input :subject, collection: [ "Interested to join", "Interested to learn more", "General question", "Other" ] %>
+      <%= f.input :message, :as => :text, :input_html => { 'rows' => 3 } %>
+      <%= f.input :first_name, required: true %>
+      <%= f.input :last_name, required: true %>
+      <%= f.input :email, required: true %>
+    <% else %>
+      <%= f.input :subject, collection: [ "Would like an introduction", "Problem with application", "General question", "Other" ] %>
+      <%= f.input :message, hint: "If you'd like an introduction, please include the full name of the person you'd like to be introduced to.", :as => :text, :input_html => { 'rows' => 4 }, required: true %>
+    <% end %>
 
-<%= link_to "< back", :back, class: "center" %>
+    <div class="center">
+      <%= f.button :submit, 'Submit', class: "btn btn-primary btn-block mt-1 mb-4" %>
+    </div>
+  <% end %>
+
+</div>

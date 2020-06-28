@@ -1,30 +1,47 @@
-<% if current_user.status == "verified" %>
-  <h2 class="text-center mb-2">&#128588; Current Favors &#128588;</h2>
-  <h6 class="mt-0 mb-4 text-center">Favors will remain online for one week.</h6>
+<div class="container">
+  <% if current_user.status == "verified" %>
+    <h2 class="text-center mb-2">&#128588; Current Favors &#128588;</h2>
+    <h6 class="mt-0 mb-4 text-center">Favors will remain online for one week.</h6>
 
-  <% @favors.each do |favor| %>
-    <% if favor.end_date >= Date.today %>
-      <div class="favor-container">
-        <p><strong>Favor:</strong> <%= favor.favor %></p>
-        <p><strong>Significance:</strong> <%= favor.significance %></p>
-          <p><strong>Details:</strong> <%= favor.details %></p>
-        <% if favor.link.present? %>
-          <p><strong>Link:</strong> <a href=<%= favor.link %>>
-          <%= favor.link %></a></p>
-        <% end %>
-        <br>
-        <% if favor.user == current_user %>
-          <p><strong>Posted by:</strong> You &#128169;</p>
-        <% else %>
-          <p><strong>Posted by:</strong> <%= link_to favor.user.full_name, user_path(favor.user) %></p>
-          <p><i class="fas fa-envelope"></i> <%= favor.user.email %></p>
-          <p><%= favor.introduction %></p>
-          <p><strong>Fun fact:</strong> <%= favor.user.funfact %></p>
-        <% end %>
-      </div>
-    <% end %>
+    <div class="favors">
+      <% @favors.each do |favor| %>
+          <% if favor.end_date >= Date.today %>
+            <div class="favor-container">
+              <%= link_to user_path(favor.user), :action => 'go' do %>
+                <div class="d-flex align-items-center favor-profile mb-3">
+                  <% if favor.user.photo.attached? %>
+                    <%= cl_image_tag favor.user.photo.key, height: 45, width: 45, crop: :fill, radius: :max, format: :png %>
+                  <% else %>
+                    <img src="https://image.flaticon.com/icons/svg/1077/1077012.svg" class="avatar-small" alt="profile-image">
+                  <% end %>
+                  <div class="align-middle">
+                    <p class="text-left my-0 ml-2"><strong><%= favor.user.full_name %></strong></p>
+                    <div class="d-flex">
+                      <p class="city-industry-tag"><%= favor.user.city %></p>
+                      <p class="city-industry-tag ml-0"><%= favor.user.industry %></p>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+
+              <p class="mb-1 text-center"><strong>Favor</strong></p>
+              <p class="mt-0"> <%= favor.favor %></p>
+              <% if favor.link.present? %>
+                <p class="mt-0"><strong>Link:</strong> <a href=<%= favor.link %>><%= favor.link %></a></p>
+              <% end %>
+
+              <p class="mt-2 mb-1 text-center"><strong>Importance</strong></p>
+              <p class="mt-0 pb-1 mb-5"><%= favor.significance %></p>
+
+              <div class="favor-message">
+                <%= link_to "Message #{favor.user.first_name}", new_favor_response_path(favor), class: "btn btn-primary btn-block" %>
+              </div>
+            </div>
+          <% end %>
+      <% end %>
+    </div>
+  <% else %>
+    <h4 class="text-center mb-3">Thanks for registering for the Quick Favor Club!</h4>
+    <h5 class="text-center">Your account is being verified and will be activated soon. &#128522;</h5>
   <% end %>
-<% else %>
-  <h4 class="text-center mb-3">Thanks for registering for the Quick Favor Club!</h4>
-  <h5 class="text-center">Your account is being verified and will be activated soon. &#128522;</h5>
-<% end %>
+</div>
