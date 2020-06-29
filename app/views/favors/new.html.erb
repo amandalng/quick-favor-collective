@@ -1,13 +1,15 @@
-<h2 class="mb-4 text-center">Request a Favor</h2>
+<div class="container">
+  <h2 class="mb-4 text-center">Request a Favor</h2>
 
-<%= simple_form_for [current_user, @favor] do |f| %>
-  <%= f.input :introduction, label: "Make a quick intro for yourself - any context relevant to your favor would be useful!", hint: "You may want to take from your profile one-liner: #{current_user.oneliner}", :as => :text, :input_html => { 'rows' => 2}  %>
-  <%= f.input :favor, label: 'What favor would you like to request?', placeholder: "E.g. Please like and share my new YouTube video!", :as => :text, :input_html => { 'rows' => 2} %>
-  <%= f.input :significance, label: 'Why is this important to you?', placeholder: "E.g. Trying to spread awareness for environmental sustainability", :as => :text, :input_html => { 'rows' => 2} %>
-  <%#= f.input :details, label: "What exactly do you need people to do?", placeholder: "E.g. This video contains tips for simple behavior changes for a healthier world. Would appreciate if you could like, share, forward, etc. the link below.", :as => :text, :input_html => { 'rows' => 4} %>
-  <%= f.input :link, label: 'Link (if applicable)', placeholder: "www.youtube.com/videotoshare" %>
+  <%= simple_form_for [current_user, @favor] do |f| %>
+    <%= f.input :introduction, label: "Make a quick intro for yourself - any context relevant to your favor would be useful!", hint: "You may want to take from your profile one-liner: #{current_user.oneliner}", :as => :text, :input_html => { 'rows' => 2}  %>
+    <%= f.input :favor, label: 'What favor would you like to request?', placeholder: "E.g. Please like and share my new YouTube video!", :as => :text, :input_html => { 'rows' => 2} %>
+    <%= f.input :significance, label: 'Why is this important to you?', placeholder: "E.g. Trying to spread awareness for environmental sustainability", :as => :text, :input_html => { 'rows' => 2} %>
+    <%#= f.input :details, label: "What exactly do you need people to do?", placeholder: "E.g. This video contains tips for simple behavior changes for a healthier world. Would appreciate if you could like, share, forward, etc. the link below.", :as => :text, :input_html => { 'rows' => 4} %>
+    <%= f.input :link, label: 'Link (if applicable)', placeholder: "www.youtube.com/videotoshare" %>
 
-  <div class="center">
-    <%= f.button :submit, 'Submit', class: "btn btn-primary btn-block mt-1 mb-4" %>
-  </div>
-<% end %>
+    <div class="center">
+      <%= f.button :submit, 'Submit', class: "btn btn-primary btn-block mt-1 mb-4" %>
+    </div>
+  <% end %>
+</div>

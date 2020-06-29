@@ -15,11 +15,18 @@
     <% if @home == true %>
       <%= render 'shared/banner' %>
     <% else %>
-      <%= render 'shared/topLogo' %>
-      <%= render 'shared/navbar' %>
-      <div class="top-margin">
-        <%= yield %>
-      </div>
+      <% if @about == true %>
+        <%= render 'shared/navbar' %>
+        <div class="top-margin">
+          <%= yield %>
+        </div>
+      <% else %>
+        <%= render 'shared/topLogo' %>
+        <%= render 'shared/navbar' %>
+        <div class="top-margin">
+          <%= yield %>
+        </div>
+      <% end %>
     <% end %>
     <%= render 'shared/bottomnavbar' %>
     <%= javascript_include_tag 'application' %>
