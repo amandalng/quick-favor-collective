@@ -1,0 +1,81 @@
+.btn {
+  background-color: #24404F;
+  color: white;
+  border-radius: 10px;
+  //border-style: solid;
+  //border-width: 10px;
+  //border-color: #FACD93;
+}
+
+.btn-primary {
+  background-color: #24404F;
+  color: white;
+  border-radius: 10px;
+  //border-style: solid 2px;
+  //border-color: #FACD93;
+}
+
+.btnHome {
+  background-color: #24404F;
+  color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #FACD93;
+  width: 80px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.btnHome:hover {
+  background-color: #507A8C;
+  color: #B2B2B2;
+}
+
+.btnAdd {
+  background-color: #507A8C;
+  border-radius: 50px;
+  width: 180px;
+  height: 50px;
+  text-align: left;
+  padding: 0px;
+  position: relative;
+  border-style: none;
+  box-shadow: 0px 0px 8px #24404F;
+  //border-width: 3px;
+  //border-color: #FACD93;
+}
+
+.btnText {
+  position: absolute;
+  padding-left: 50px;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+
+.btnIcon {
+  background-color: #24404F;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  left: -3px;
+  z-index: 2;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #507A8C;
+}
+
+.fas, .fa-plus, .fa-2x {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #507A8C;
+}
+
+.btnAdd:hover, .btnIcon:hover {
+  color: gray;
+}
