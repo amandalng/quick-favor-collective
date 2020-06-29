@@ -1,20 +1,30 @@
 .avatar {
-  width: 40px;
+  width: 100px;
   border-radius: 50%;
+  background: #24404F;
+  box-shadow: 0 0 6px rgba(0,0,0,1);
+  margin: auto;
 }
-.avatar-large {
-  width: 56px;
+
+.avatar-small {
+  width: 45px;
   border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0,0,0,1);
+  background: #24404F;
 }
-.avatar-bordered {
-  width: 40px;
-  border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
-}
-.avatar-square {
-  width: 40px;
-  border-radius: 0px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
-}
+// .avatar-large {
+//   width: 56px;
+//   border-radius: 50%;
+// }
+// .avatar-bordered {
+//   width: 40px;
+//   border-radius: 50%;
+//   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+//   border: white 1px solid;
+// }
+// .avatar-square {
+//   width: 40px;
+//   border-radius: 0px;
+//   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+//   border: white 1px solid;
+// }

@@ -1,57 +1,59 @@
-<% if current_user.nil? || current_user.admin == false %>
-  <p class="text-center">Oops! You're not allowed here. &#128584;</p>
+<div class="container">
+  <% if current_user.nil? || current_user.admin == false %>
+    <p class="text-center">Oops! You're not allowed here. &#128584;</p>
 
-  <%= link_to "< back", :back %>
-<% else %>
-  <h2 class="text-center mb-4">&#128588; Inquiries &#128588;</h2>
+    <%= link_to "< back", :back %>
+  <% else %>
+    <h2 class="text-center mb-4">&#128588; Inquiries &#128588;</h2>
 
-  <h6 class="text-center mt-4 mb-3"><strong>New Inquiries</strong></h6>
+    <h6 class="text-center mt-4 mb-3"><strong>New Inquiries</strong></h6>
 
-  <% @inquiries.each do |inquiry| %>
-    <% if inquiry.responded == false %>
-      <div class="profile-container">
-        <div class="d-flex">
-          <p class="flex-grow-1"><strong>Subject</strong>: <%= inquiry.subject %></p>
-          <% if (inquiry.created_at.to_date) > (Date.today - 7) %>
-            <p class="new-tag my-0 ml-2">NEW</p>
+    <% @inquiries.each do |inquiry| %>
+      <% if inquiry.responded == false %>
+        <div class="favor-container mb-3">
+          <div class="d-flex">
+            <p class="flex-grow-1"><strong>Subject</strong>: <%= inquiry.subject %></p>
+            <% if (inquiry.created_at.to_date) > (Date.today - 7) %>
+              <p class="new-tag my-0 ml-2">NEW</p>
+            <% end %>
+          </div>
+          <% if inquiry.message.present? %>
+            <p><strong>Message</strong>: <%= inquiry.message %></p>
           <% end %>
+          <% if inquiry.user.present? %>
+            <p class="mb-0"><strong>Posted by</strong>: <%= inquiry.user.full_name %></p>
+            <p><strong>Contact</strong>: <%= inquiry.user.email %></p>
+          <% end %>
+          <% if inquiry.first_name.present? %>
+            <p class="mb-0"><strong>Posted by</strong>: <%= inquiry.first_name %> <%= inquiry.last_name %></p>
+            <p><strong>Contact</strong>: <%= inquiry.email %></p>
+          <% end %>
+          <p><strong>Date received</strong>: <%= inquiry.created_at.to_date %></p>
+          <%= link_to "Mark responded", inquiry_path(inquiry), :method => :patch, data: { confirm: "Are you sure?" }, class: "btn btn-primary btn-block" %>
         </div>
-        <% if inquiry.message.present? %>
-          <p><strong>Message</strong>: <%= inquiry.message %></p>
-        <% end %>
-        <% if inquiry.user.present? %>
-          <p class="mb-0"><strong>Posted by</strong>: <%= inquiry.user.full_name %></p>
-          <p><strong>Contact</strong>: <%= inquiry.user.email %></p>
-        <% end %>
-        <% if inquiry.first_name.present? %>
-          <p class="mb-0"><strong>Posted by</strong>: <%= inquiry.first_name %> <%= inquiry.last_name %></p>
-          <p><strong>Contact</strong>: <%= inquiry.email %></p>
-        <% end %>
-        <p><strong>Date received</strong>: <%= inquiry.created_at.to_date %></p>
-        <%= link_to "Mark responded", inquiry_path(inquiry), :method => :patch, data: { confirm: "Are you sure?" }, class: "btn btn-primary btn-block" %>
-      </div>
+      <% end %>
+    <% end %>
+
+    <h6 class="text-center mt-4 mb-3"><strong>Past Inquiries</strong></h6>
+
+    <% @inquiries.each do |inquiry| %>
+      <% if inquiry.responded == true %>
+        <div class="favor-container">
+          <p><strong>Subject</strong>: <%= inquiry.subject %></p>
+          <% if inquiry.message.present? %>
+            <p><strong>Message</strong>: <%= inquiry.message %></p>
+          <% end %>
+          <% if inquiry.user.present? %>
+            <p class="mb-0"><strong>Posted by</strong>: <%= inquiry.user.full_name %></p>
+            <p><strong>Contact</strong>: <%= inquiry.user.email %></p>
+          <% end %>
+          <% if inquiry.first_name.present? %>
+            <p class="mb-0"><strong>Posted by</strong>: <%= inquiry.first_name %> <%= inquiry.last_name %></p>
+            <p><strong>Contact</strong>: <%= inquiry.email %></p>
+          <% end %>
+          <p><strong>Date received</strong>: <%= inquiry.created_at.to_date %></p>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
-
-  <h6 class="text-center mt-4 mb-3"><strong>Past Inquiries</strong></h6>
-
-  <% @inquiries.each do |inquiry| %>
-    <% if inquiry.responded == true %>
-      <div class="profile-container">
-        <p><strong>Subject</strong>: <%= inquiry.subject %></p>
-        <% if inquiry.message.present? %>
-          <p><strong>Message</strong>: <%= inquiry.message %></p>
-        <% end %>
-        <% if inquiry.user.present? %>
-          <p class="mb-0"><strong>Posted by</strong>: <%= inquiry.user.full_name %></p>
-          <p><strong>Contact</strong>: <%= inquiry.user.email %></p>
-        <% end %>
-        <% if inquiry.first_name.present? %>
-          <p class="mb-0"><strong>Posted by</strong>: <%= inquiry.first_name %> <%= inquiry.last_name %></p>
-          <p><strong>Contact</strong>: <%= inquiry.email %></p>
-        <% end %>
-        <p><strong>Date received</strong>: <%= inquiry.created_at.to_date %></p>
-      </div>
-    <% end %>
-  <% end %>
-<% end %>
+</div>

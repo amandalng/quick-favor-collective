@@ -1,8 +1,8 @@
 class Favor < ApplicationRecord
   belongs_to :user
+  has_many :responses
 
   validates :favor, presence: true
-  validates :details, presence: true
   validates :significance, presence: true
   validates :introduction, presence: true
   validates :user, presence: true

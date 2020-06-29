@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="favor-container">
+    <%= link_to user_path(@favor.user), :action => 'go' do %>
+    <div class="d-flex align-items-center favor-profile mb-3">
+      <% if @favor.user.photo.attached? %>
+      <%= cl_image_tag @favor.user.photo.key, height: 45, width: 45, crop: :fill, radius: :max, format: :png %>
+      <% else %>
+      <img src="https://image.flaticon.com/icons/svg/1077/1077012.svg" class="avatar-small" alt="profile-image">
+      <% end %>
+      <div class="align-middle">
+        <p class="text-left my-0 ml-2"><strong><%= @favor.user.full_name %></strong></p>
+        <div class="d-flex">
+          <p class="city-industry-tag"><%= @favor.user.city %></p>
+          <p class="city-industry-tag ml-0"><%= @favor.user.industry %></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+    <p class="mb-1 text-center"><strong>Favor</strong></p>
+    <p class="mt-0"> <%= @favor.favor %></p>
+    <% if @favor.link.present? %>
+    <p class="mt-0"><strong>Link:</strong> <a href=<%= @favor.link %>><%= @favor.link %></a></p>
+    <% end %>
+
+    <p class="mt-2 mb-1 text-center"><strong>Importance</strong></p>
+    <p class="mt-0 pb-1 mb-4"><%= @favor.significance %></p>
+
+
+    <p class="text-center"><strong>What would you like to tell <%= @favor.user.first_name %>?</strong></p>
+
+    <%= simple_form_for [@favor, @response] do |f| %>
+    <%= f.input :message, label: false, :as => :text, :input_html => { 'rows' => 5}  %>
+
+    <div class="center">
+      <%= f.button :submit, 'Send', class: "btn btn-primary btn-block" %>
+    </div>
+    <% end %>
+
+  </div>
+</div>
