@@ -8,44 +8,64 @@
       <% if user_signed_in? %>
         <% if current_user.status == "verified" %>
           <li class="nav-item">
-            <%= link_to "About", about_path, class: "nav-link text-right mr-2" %>
+            <%= link_to about_path, class: "text-right mr-4 nav-link-button" do %>
+              <i class="fas fa-home"></i> &nbsp; About
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "Favors", favors_path, class: "nav-link text-right mr-2" %>
+            <%= link_to favors_path, class: "text-right mr-4 nav-link-button" do %>
+              <i class="fas fa-hands-helping"></i> &nbsp; Favors
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "Community", users_path, class: "nav-link text-right mr-2" %>
+            <%= link_to users_path, class: "text-right mr-4 nav-link-button"  do %>
+              <i class="fas fa-users"></i> &nbsp; Community
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "Profile", user_path(current_user), class: "nav-link text-right mr-2" %>
+            <%= link_to user_path(current_user), class: "text-right mr-4 nav-link-button"  do %>
+              <i class="fas fa-user"></i> &nbsp; Profile
+            <% end %>
           </li>
           <% if current_user.admin == false %>
             <li class="nav-item">
-              <%= link_to "Contact", contact_path, class: "nav-link text-right mr-2" %>
+              <%= link_to contact_path, class: "text-right mr-4 nav-link-button" do %>
+                <i class="fas fa-comments"></i> &nbsp; Contact
+              <% end %>
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to "Inquiries", inquiries_path, class: "nav-link text-right mr-2" %>
+              <%= link_to inquiries_path, class: "text-right mr-4 nav-link-button" do %>
+                <i class="fas fa-comments"></i> &nbsp; Inquiries
+              <% end %>
             </li>
           <% end %>
 
           <li class="nav-item">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link text-right mr-2" %>
+            <%= link_to destroy_user_session_path, method: :delete, class: "text-right mr-4 nav-link-button" do %>
+              <i class="fas fa-sign-out-alt"></i> &nbsp; Log Out
+            <% end %>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "About", destroy_user_session_path, method: :delete, class: "nav-link text-right mr-2" %>
-          </li>
+            <%= link_to destroy_user_session_path, method: :delete, class: "text-right mr-4 nav-link-button" do %>
+              <i class="fas fa-home"></i> &nbsp; About
+            <% end %>
         <% end %>
       <% else %>
         <li class="nav-item">
-          <%= link_to "About", about_path, class: "nav-link text-right mr-2" %>
+          <%= link_to about_path, class: "text-right mr-4 nav-link-button" do %>
+            <i class="fas fa-home"></i> &nbsp; About
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "Contact", contact_path, class: "nav-link text-right mr-2" %>
+          <%= link_to contact_path, class: "text-right mr-4 nav-link-button" do %>
+            <i class="fas fa-comments"></i> &nbsp; Contact
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link text-right mr-2" %>
+            <%= link_to new_user_session_path, class: "text-right mr-4 nav-link-button" do %>
+              <i class="fas fa-sign-in-alt"></i> &nbsp; Login
+            <% end %>
         </li>
       <% end %>
     </ul>

@@ -8,6 +8,7 @@
 
 puts "Destroying seeds..."
 
+Response.destroy_all
 Referral.destroy_all
 Inquiry.destroy_all
 Referral.destroy_all
@@ -62,37 +63,37 @@ User.create(
 #   verified: true
 #   )
 
-# User.create(
-#   email: "jeshua@gmail.com",
-#   password: "password",
-#   first_name: "Jeshua",
-#   last_name: "John",
-#   oneliner: "SF-based and working to empower workers and transform companies for the better",
-#   funfact: "Suddenly very into gardening and succulents",
-#   city: "San Francisco",
-#   industry: "Nonprofit",
-#   linkedin: "https://www.linkedin.com/in/jkj",
-#   referrer: "Amanda Ng",
+User.create(
+  email: "jeshua@gmail.com",
+  password: "password",
+  first_name: "Jeshua",
+  last_name: "John",
+  oneliner: "SF-based and working to empower workers and transform companies for the better",
+  funfact: "Suddenly very into gardening and succulents",
+  city: "San Francisco",
+  industry: "Nonprofit",
+  linkedin: "https://www.linkedin.com/in/jkj",
+  referrer: "Amanda Ng",
 
-#   admin: false,
-#   verified: true
-#   )
+  admin: false,
+  status: "verified"
+  )
 
-# User.create(
-#   email: "audie@gmail.com",
-#   password: "password",
-#   first_name: "Audie",
-#   last_name: "Wibowo",
-#   oneliner: "Recently transferred from CS Singapore to Hong Kong driving cool internal strategic initiatives",
-#   funfact: "Obsessed with other people's dogs (doodles only)",
-#   city: "Hong Kong",
-#   industry: "Finance",
-#   linkedin: "https://www.linkedin.com/in/aedith",
-#   referrer: "Amanda Ng",
+User.create(
+  email: "audie@gmail.com",
+  password: "password",
+  first_name: "Audie",
+  last_name: "Wibowo",
+  oneliner: "Recently transferred from CS Singapore to Hong Kong driving cool internal strategic initiatives",
+  funfact: "Obsessed with other people's dogs (doodles only)",
+  city: "Hong Kong",
+  industry: "Finance",
+  linkedin: "https://www.linkedin.com/in/aedith",
+  referrer: "Amanda Ng",
 
-#   admin: false,
-#   verified: true
-#   )
+  admin: false,
+  status: "unverified"
+  )
 
 # User.create(
 #   email: "chris@gmail.com",

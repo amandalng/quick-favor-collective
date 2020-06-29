@@ -18,12 +18,8 @@
         <% if user.status == "unverified" %>
           <tr data-link="<%= user_path(user) %>" >
             <td class="city-industry">
-              <div class="d-flex">
-              <p><strong><%= user.full_name %></strong></p>
-              <div>
-                <a class="city-industry-tag"><%= user.city %></a>
-                <a class="city-industry-tag"><%= user.industry %></a></div>
-              </div>
+              <p class="user-name my-0"><strong><%= user.full_name %></strong></p>
+              <div class="my-1"><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag"><%= user.industry %></a></div>
               <p class="mb-2"><%= user.oneliner %></p>
               <% if @user_names.include?(user.referrer) %>
                 <div class="d-flex">
