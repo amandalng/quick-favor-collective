@@ -50,14 +50,14 @@
 
   <input type="name" placeholder="Find a member..." class="form-control mt-2 mb-2" id="userSearch" >
 
-  <select id="cities" name="cities" class="btn btn-block btn-secondary">
+  <select id="cities" name="cities" class="btn-dropdown btn-block">
     <option> All cities </option>
     <% @cities.each do |city| %>
       <option value= <%= city %>> <%= city %> </option>
     <% end %>
   </select>
 
-  <select id="industries" name="industries" class="btn btn-block btn-secondary mb-3">
+  <select id="industries" name="industries" class="btn-dropdown btn-block mb-3">
     <option> All industries </option>
     <% @industries.each do |industry| %>
       <option value= <%= industry %>> <%= industry %> </option>
