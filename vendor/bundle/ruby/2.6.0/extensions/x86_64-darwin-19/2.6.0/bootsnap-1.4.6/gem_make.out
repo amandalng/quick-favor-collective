@@ -1,0 +1,15 @@
+current directory: /Users/thomaseng/Documents/GitHub/quick-favor-collective/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
+/Users/thomaseng/.rbenv/versions/2.6.5/bin/ruby -I /Users/thomaseng/.rbenv/versions/2.6.5/lib/ruby/site_ruby/2.6.0 -r ./siteconf20200624-43766-1hpyt5e.rb extconf.rb
+creating Makefile
+
+current directory: /Users/thomaseng/Documents/GitHub/quick-favor-collective/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/thomaseng/Documents/GitHub/quick-favor-collective/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/thomaseng/Documents/GitHub/quick-favor-collective/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20200624-43766-1jlrujl/bootsnap

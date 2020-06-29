@@ -7,14 +7,16 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= render 'shared/navbar' %>
     <%#= render 'shared/flashes' %>
     <% if @home == true %>
       <%= render 'shared/banner' %>
     <% else %>
+      <%= render 'shared/topLogo' %>
+      <%= render 'shared/navbar' %>
       <div class="top-margin">
         <%= yield %>
       </div>
