@@ -24,8 +24,8 @@ User.create(
   last_name: "Ng",
   oneliner: "Helping to drive financial inclusion and empowerment of rural Indonesian women through a digital platform",
   funfact: "Currently very into Tostito Hint of Lime",
-  city: "Jakarta",
-  industry: "Fintech",
+  city: "Singapore",
+  industry: "Technology",
   linkedin: "https://www.linkedin.com/in/amandalng",
   referrer: "Thomas Eng",
 
@@ -63,37 +63,37 @@ User.create(
 #   verified: true
 #   )
 
-User.create(
-  email: "jeshua@gmail.com",
-  password: "password",
-  first_name: "Jeshua",
-  last_name: "John",
-  oneliner: "SF-based and working to empower workers and transform companies for the better",
-  funfact: "Suddenly very into gardening and succulents",
-  city: "San Francisco",
-  industry: "Nonprofit",
-  linkedin: "https://www.linkedin.com/in/jkj",
-  referrer: "Amanda Ng",
+# User.create(
+#   email: "jeshua@gmail.com",
+#   password: "password",
+#   first_name: "Jeshua",
+#   last_name: "John",
+#   oneliner: "SF-based and working to empower workers and transform companies for the better",
+#   funfact: "Suddenly very into gardening and succulents",
+#   city: "San Francisco",
+#   industry: "Nonprofit",
+#   linkedin: "https://www.linkedin.com/in/jkj",
+#   referrer: "Amanda Ng",
 
-  admin: false,
-  status: "verified"
-  )
+#   admin: false,
+#   status: "verified"
+#   )
 
-User.create(
-  email: "audie@gmail.com",
-  password: "password",
-  first_name: "Audie",
-  last_name: "Wibowo",
-  oneliner: "Recently transferred from CS Singapore to Hong Kong driving cool internal strategic initiatives",
-  funfact: "Obsessed with other people's dogs (doodles only)",
-  city: "Hong Kong",
-  industry: "Finance",
-  linkedin: "https://www.linkedin.com/in/aedith",
-  referrer: "Amanda Ng",
+# User.create(
+#   email: "audie@gmail.com",
+#   password: "password",
+#   first_name: "Audie",
+#   last_name: "Wibowo",
+#   oneliner: "Recently transferred from CS Singapore to Hong Kong driving cool internal strategic initiatives",
+#   funfact: "Obsessed with other people's dogs (doodles only)",
+#   city: "Hong Kong",
+#   industry: "Finance",
+#   linkedin: "https://www.linkedin.com/in/aedith",
+#   referrer: "Amanda Ng",
 
-  admin: false,
-  status: "unverified"
-  )
+#   admin: false,
+#   status: "unverified"
+#   )
 
 # User.create(
 #   email: "chris@gmail.com",
@@ -166,7 +166,7 @@ User.create(
   funfact: "Often models hair after Avatar character Sokka",
   city: "Jakarta",
   industry: "Education",
-  linkedin: "https://www.linkedin.com/id/thomas-eng-1953a755/",
+  linkedin: "https://www.linkedin.com/in/thomas-eng-1953a755",
   referrer: "Amanda Ng",
 
   admin: true,

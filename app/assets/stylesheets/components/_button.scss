@@ -11,7 +11,7 @@
 
 .btn-primary {
   background-color: #24404F;
-  color: white;
+  color: #D5E6EE;
   border-radius: 50px;
   box-shadow: 0 0 2px rgba(0,0,0,1);
   // font-weight: bold;
@@ -22,25 +22,24 @@
 .btn-primary:hover {
   background-color: #24404F;
   opacity: 98%;
-  color: #D5E6EE;
+  color: white;
   //border-style: solid 2px;
   //border-color: #FACD93;
 }
 
 .nav-link-button {
   background-color: #507A8C;
-  color: white;
+  color: #D5E6EE;
   border-radius: 50px;
   box-shadow: 0 0 2px rgba(0,0,0,1);
-  margin-top: 8px;
-  padding: 8px 20px;
+  margin-top: 10px;
+  padding: 8px 16px;
   float: right;
 }
 
 .nav-link-button:hover {
-  color: white;
   opacity: 98%;
-  color: #D5E6EE;
+  color: white;
 }
 
 .btn-dropdown {
@@ -52,7 +51,7 @@
 
 .btnHome {
   background-color: #24404F;
-  color: white;
+  color: #FACD93;
   border-radius: 50px;
   box-shadow: 0 0 2px rgba(0,0,0,1);
   // border-style: solid;
@@ -64,13 +63,13 @@
 }
 
 .btnHome:hover {
-  background-color: #24404F;
   opacity: 98%;
-  color: #FACD93;
+  color: #D5E6EE;
 }
 
 .btnAdd {
   background-color: #507A8C;
+  color: #D5E6EE;
   border-radius: 50px;
   width: 200px;
   height: 50px;
@@ -118,7 +117,6 @@
 .btnAdd:hover, .btnIcon:hover {
   color: white;
   opacity: 98%;
-  color: #D5E6EE;
 }
 
 a {

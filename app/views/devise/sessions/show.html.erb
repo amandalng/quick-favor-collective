@@ -30,15 +30,14 @@
 
 
     <% if current_user.admin == true %>
-      <p class="mb-0"><strong>Referred by</strong>: <%= @user.referrer %></p>
-
-      <p><strong>Status</strong>:
+      <p class="mb-0"><strong>Status</strong>:
         <% if @user.status == "verified" %>
           Verified Member
         <% else %>
           Unverified Applicant <i class="fas fa-exclamation-circle"></i>
         <% end %>
       </p>
+      <p class="mb-0"><strong>Referred by</strong>: <%= @user.referrer %></p>
     <% end %>
 
     <%#= link_to "See Past Favors", user_favors_path(@user), class: "btn btn-secondary btn-block" %>
