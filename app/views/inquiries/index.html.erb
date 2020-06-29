@@ -29,7 +29,7 @@
             <p><strong>Contact</strong>: <%= inquiry.email %></p>
           <% end %>
           <p><strong>Date received</strong>: <%= inquiry.created_at.to_date %></p>
-          <%= link_to "Mark responded", inquiry_path(inquiry), :method => :patch, data: { confirm: "Are you sure?" }, class: "btn btn-primary btn-block" %>
+          <%= link_to "Mark responded", inquiry_path(inquiry), :method => :patch, data: { confirm: "Are you sure?" }, class: "btn btn-primary btn-block mt-3" %>
         </div>
       <% end %>
     <% end %>

@@ -1,12 +1,12 @@
 class ResponsesController < ApplicationController
   def new
     @response = Response.new
-    @favor = Favor.find_by(params[:id])
+    @favor = Favor.find(params[:favor_id])
   end
 
   def create
     @response = Response.new(response_params)
-    @favor = Favor.find_by(params[:id])
+    @favor = Favor.find(params[:favor_id])
 
     @response.favor = @favor
     @response.user = current_user
