@@ -1,26 +1,14 @@
+.top-margin {
+  margin: 55px auto;
+  margin-bottom: 0;
+}
+
 .container {
-  margin: 85px auto;
-  margin-bottom: 100px;
+  margin: 80px auto;
 }
 
-.favor-container {
-  padding: 16px;
-  background-color: white;
-  border-radius: 4px;
-  margin-bottom: 16px;
-  box-shadow: 0 0 4px #888888;
-}
-
-.favor-container p {
-  margin: 8px;
-}
-
-.profile-container {
-  padding: 16px;
-  background-color: white;
-  border-radius: 4px;
-  margin-bottom: 16px;
-  box-shadow: 0 0 4px #888888;
+.empty-container {
+  height: 5vh;
 }
 
 .center {

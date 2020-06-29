@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_22_121544) do
+ActiveRecord::Schema.define(version: 2020_06_28_155052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,16 @@ ActiveRecord::Schema.define(version: 2020_06_22_121544) do
     t.index ["user_id"], name: "index_referrals_on_user_id"
   end
 
+  create_table "responses", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "message"
+    t.bigint "user_id"
+    t.bigint "favor_id"
+    t.index ["favor_id"], name: "index_responses_on_favor_id"
+    t.index ["user_id"], name: "index_responses_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -98,4 +108,6 @@ ActiveRecord::Schema.define(version: 2020_06_22_121544) do
   add_foreign_key "favors", "users"
   add_foreign_key "inquiries", "users"
   add_foreign_key "referrals", "users"
+  add_foreign_key "responses", "favors"
+  add_foreign_key "responses", "users"
 end

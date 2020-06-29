@@ -15,7 +15,9 @@ class User < ApplicationRecord
 
   has_many :favors
   has_many :referrals
+  has_many :responses
   has_one_attached :photo
+
 
   after_create :send_welcome_email, :send_new_applicant_notification
 
@@ -27,7 +29,7 @@ class User < ApplicationRecord
   private
 
   def send_welcome_email
-    UserMailer.with(user: self).welcome.deliver_now
+    UserMailer.with(user: self).sign_up.deliver_now
   end
 
   def send_new_applicant_notification

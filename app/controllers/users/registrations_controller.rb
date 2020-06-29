@@ -24,6 +24,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def verify
+    @user = User.find(params[:id])
+    @user.status = "verified"
+    @user.save
+
+    UserMailer.with(user: @user).welcome.deliver_now
+    redirect_to user_path(@user)
+  end
+
+  def reject
+    @user = User.find(params[:id])
+    @user.status = "rejected"
+    @user.save
+
+    redirect_to users_path
+  end
+
   # DELETE /resource
   # def destroy
   #   super

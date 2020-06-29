@@ -1,41 +1,45 @@
-<h2 class="mb-4 text center">Join the Collective</h2>
+<div class="container">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+  <h2 class="mb-4 text center">Join the Collective</h2>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
 
-    <h5 class="mt-5 mb-4 center">Now let's get to know you. &#128123;</h5>
+    <div class="form-inputs">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" }%>
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { autocomplete: "new-password" } %>
 
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :city %>
-    <%= f.input :industry, collection: [ "Accounting & Tax", "Aerospace", "Agriculture & Food", "Architecture", "Art & Design", "Consumer Products", "Cybersecurity", "E-commerce", "Education", "Electronics", "Energy & Sustainability", "Financial Services", "Government & Public Sector", "Healthcare", "Internet & Telco", "Logistics", "Management Consulting", "Manufacturing", "Nonprofit", "Real estate", "Supply Chain", "Technology", "Travel & Hospitality", "Venture Capital & Private Equity", "Other" ], class: "select2" %>
-    <%= f.input :linkedin, label: "LinkedIn" %>
-    <%= f.input :oneliner, label: "What's your one-line introduction?", :as => :text, :input_html => { 'rows' => 2}  %>
-    <%= f.input :funfact, label: "Share a fun fact about yourself.", :as => :text, :input_html => { 'rows' => 2}  %>
+      <h5 class="mt-5 mb-4 center">Now let's get to know you. &#128123;</h5>
 
-    <%= f.input :photo, label: "Profile picture", as: :file %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :city %>
+      <%= f.input :industry, collection: [ "Accounting & Tax", "Aerospace", "Agriculture & Food", "Architecture", "Art & Design", "Consumer Products", "Cybersecurity", "E-commerce", "Education", "Electronics", "Energy & Sustainability", "Financial Services", "Government & Public Sector", "Healthcare", "Internet & Telco", "Logistics", "Management Consulting", "Manufacturing", "Nonprofit", "Real estate", "Supply Chain", "Technology", "Travel & Hospitality", "Venture Capital & Private Equity", "Other" ], class: "select2" %>
+      <%= f.input :linkedin, label: "LinkedIn" %>
+      <%= f.input :oneliner, label: "What's your one-line introduction?", :as => :text, :input_html => { 'rows' => 2}  %>
+      <%= f.input :funfact, label: "Share a fun fact about yourself.", :as => :text, :input_html => { 'rows' => 2}  %>
 
-    <%= f.input :referrer, label: "Who invited you to the collective?", hint: "Please write his or her full name as written in the email you received." %>
+      <%= f.input :photo, label: "Profile picture", as: :file %>
+
+      <%= f.input :referrer, label: "Who invited you to the collective?", hint: "Please write his or her full name as written in the email you received." %>
+    </div>
+
+    <div class="form-actions center">
+      <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block my-4" %>
+    </div>
+  <% end %>
+
+  <div class="center">
+    <%= render "devise/shared/links" %>
   </div>
 
-  <div class="form-actions center">
-    <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block my-4" %>
-  </div>
-<% end %>
-
-<div class="center">
-  <%= render "devise/shared/links" %>
 </div>
