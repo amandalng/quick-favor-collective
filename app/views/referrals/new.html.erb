@@ -1,13 +1,13 @@
-<h2 class="mb-4 text-center">Invite a Friend</h2>
+<div class="container">
+  <h2 class="mb-4 text-center">Invite a Friend</h2>
 
-<%= simple_form_for [current_user, @referral] do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :email, label: "What is your friend's email address?" %>
+  <%= simple_form_for [current_user, @referral] do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email, label: "What is your friend's email address?" %>
 
-  <div class="center">
-   <%= f.button :submit, 'Submit', class: "btn btn-primary btn-block mt-1 mb-4" %>
-  </div>
-<% end %>
-
-<%= link_to "< back", :back, class: "center" %>
+    <div class="center">
+     <%= f.button :submit, 'Submit', class: "btn btn-primary btn-block mt-1 mb-4" %>
+    </div>
+  <% end %>
+</div>
