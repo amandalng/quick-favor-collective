@@ -1,11 +1,15 @@
 .profile-container {
-  margin-top: 50px;
-  height: 100vh;
+  margin-top: 144px;
+  height: calc(100vh - 144px);
   padding: 16px;
   background-color: white;
   border-radius: 50px 50px 0 0;
   box-shadow: 0 0 4px #888888;
   position: relative;
+}
+
+.profile-text-container {
+  margin-top: 60px;
 }
 
 .profile-avatar {

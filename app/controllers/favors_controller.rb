@@ -24,6 +24,11 @@ class FavorsController < ApplicationController
     @favors = Favor.all.sort_by(&:created_at).reverse
   end
 
+  def favors
+    @favors = Favor.where(user: User.find(params[:user_id])).sort_by(&:created_at).reverse
+    @user = User.find(params[:user_id])
+  end
+
   def show
     @favor = Favor.find(params[:id])
   end

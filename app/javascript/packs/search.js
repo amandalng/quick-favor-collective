@@ -60,8 +60,9 @@ userInput.addEventListener("keyup", (e) => {
     if (row.firstElementChild.textContent.split('\n')[1].toUpperCase().includes(nameInput) === false || (row.firstElementChild.textContent.split('\n')[2].includes(city) === false && city != "All cities") || (row.firstElementChild.textContent.split('\n')[2].includes(industry) === false && industry != "All industries")) {
       row.classList.add("inactive-row")
     }
-    if (nameInput === "") {
+    if (nameInput === "" && (row.firstElementChild.textContent.split('\n')[2].includes(city) === false && city != "All cities") && (row.firstElementChild.textContent.split('\n')[2].includes(industry) === false && industry != "All industries")) {
       row.classList.remove("inactive-row")
+
     }
   })
 })
