@@ -4,17 +4,28 @@
   <div class="logoBanner">
     <img src="https://res.cloudinary.com/dy9chfa8l/image/upload/v1593245364/blueFullLogo_lp2jk9.png" width="600px" class="logoHome">
   </div>
-  <h5 class="my-1 text-center homeDesc">We’re a close community of passionate do’ers looking to help each other out with quick favors!</h5>
 
-  <h4 class="mt-4 mb-3 text-center">Ground Rules</h4>
+  <h4 class="mt-4 mb-3 text-center">About Us</h4>
+
+  <p class="text-center mt-4 mx-3">
+  We started the Quick Favor Club on the premise of Adam Grant's "five-minute favor", popularized in his bestselling book <%= link_to "Give and Take", "https://medium.com/motivationlifehacks/book-summary-give-and-take-why-helping-others-drives-our-success-adam-grant-c73a8a441a03" %>.
+  The idea behind these <i>quick</i> favors is simple: we can all find ways of adding high value to others’ lives at a low personal cost.
+  </p>
+
+  <p class="text-center">
+  Our network is a community of do'ers that believe in helping others <i>conveniently</i> but <i>impactfully</i>.
+  This philosophy and behavior is contagious, and by paying it forward, the return on a favor fulfilled could be exponential.
+  </p>
+
+
+  <h4 class="mt-5 mb-3 text-center">Ground Rules</h4>
 
   <ul>
-    <li>Reciprocation is a core value to us - please aim to complete favors for others &#127867;</li>
-    <li>All favors should be quick to fulfill (no more than 5 minutes!) & do-able from a computer or mobile device</li>
-    <li>To minimize spam and &#129324;, please wait one day after receiving a new request to submit one of your own</li>
-    <li>No job listings &#128581;. You can, however, request introductions to potential candidates</li>
-    <li>Lastly, to protect the privacy of our members, we do not share contact info beyond your LinkedIn (should you choose to provide it). <% if user_signed_in? %>
-      If you'd like an introduction, shoot us a message <%= link_to "here", contact_path %>, and we'll connect you offline &#128521;
+    <li class="mb-2"><strong>We value reciprocity</strong>: Please aim to complete favors for others - our network is only as powerful as your willingness to help &#127867;</li>
+    <li class="mb-2"><strong>We value your time</strong>: All favors should be quick to fulfill (no more than 5 minutes!) & do-able from a computer or mobile device. This could be a request for an introduction, knowledge-sharing, feedback, etc.</li>
+    <li class="mb-2"><strong>We value privacy</strong>: No contact information will be shared beyond your LinkedIn account (should you choose to provide it). <% if user_signed_in? %>
+      If you'd like an introduction, <%= link_to "contact us", contact_path, class: "btn-contact" %> and we'll connect you offline &#128521;
       <% end %></li>
+    <li class="mb-2"><strong>We <i>don't</i> value spam and &#129324;</strong>: Favor requests submitted online will automatically go out via email to all members. Ideally, wait a day after receiving a new request to submit one of your own.</li>
   </ul>
 </div>
