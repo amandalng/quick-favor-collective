@@ -8,9 +8,14 @@
   <% if current_user.admin == true %>
 
   <h5 class="text-center mt-3"><strong>Unverified Members</strong> <i class="fas fa-exclamation-circle"></i></h5>
+  <% if User.find_by_status("unverified").nil? %>
+    <p class="text-center mb-2">No new users to verify.</p>
+  <% end %>
+
   <div class="center">
     <%= link_to "See Referrals", referrals_path, class: "mb-3" %>
   </div>
+
 
   <table class="table align-middle">
     <tbody>
@@ -19,7 +24,7 @@
           <tr data-link="<%= user_path(user) %>" >
             <td class="city-industry">
               <p class="user-name my-0"><strong><%= user.full_name %></strong></p>
-              <div class="my-1"><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag"><%= user.industry %></a></div>
+              <div class="my-1"><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag ml-0"><%= user.industry %></a></div>
               <p class="mb-2"><%= user.oneliner %></p>
               <% if @user_names.include?(user.referrer) %>
                 <div class="d-flex">
@@ -67,7 +72,7 @@
           <tr data-link="<%= user_path(user) %>" class="userRow" >
             <td class="city-industry">
               <p class="user-name my-0"><strong><%= user.full_name %></strong></p>
-              <div class="my-1"><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag"><%= user.industry %></a></div>
+              <div class="my-1"><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag ml-0"><%= user.industry %></a></div>
               <p class="mb-2"><%= user.oneliner %></p>
             </td>
           </tr>

@@ -8,6 +8,10 @@
 
     <h6 class="text-center mt-4 mb-3"><strong>New Inquiries</strong></h6>
 
+    <% if Inquiry.find_by_responded(false).nil? %>
+      <p class="text-center mb-2">No inquiries have been made recently.</p>
+    <% end %>
+
     <% @inquiries.each do |inquiry| %>
       <% if inquiry.responded == false %>
         <div class="favor-container mb-3">
@@ -35,6 +39,10 @@
     <% end %>
 
     <h6 class="text-center mt-4 mb-3"><strong>Past Inquiries</strong></h6>
+
+    <% if Inquiry.find_by_responded(true).nil? %>
+      <p class="text-center mb-2">No inquiries have been responded to recently.</p>
+    <% end %>
 
     <% @inquiries.each do |inquiry| %>
       <% if inquiry.responded == true %>
