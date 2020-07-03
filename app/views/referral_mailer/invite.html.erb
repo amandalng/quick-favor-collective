@@ -1,8 +1,20 @@
 <p style='text-align: center; margin: 20px;'>Hey <%= @referral.first_name %>!</p>
-<p style='margin: 20px;'>Your buddy <strong><%= @referral.user.full_name %></strong> has invited you to be part of the Quick Favor Club!</p>
-<p style='margin: 20px;'>We’re a close community of passionate do’ers looking to help each other out with quick favors!</p>
-<p style='margin: 20px;'>To join us, please sign up at <%= link_to "this link", "https://quick-favor-club.herokuapp.com/users/sign_up" %> and be sure to list <strong><%= @referral.user.full_name %></strong> as your referrer. &#128522;</p>
-<p style='margin: 20px;'>If you have any trouble, feel free to reply to this email with any questions or concerns.</p>
-<p style='margin: 20px;'>We're excited to have you be part of our community!</p>
+<p style='text-align: center; margin: 20px;'>Your buddy <strong><%= @referral.user.full_name %></strong> has invited you to be part of the Quick Favor Club!</p>
+
+<h4 style='text-align: center; margin: 20px;'>A little about us...</h4>
+
+<p style='text-align: center; margin: 20px;'>
+  We started the Quick Favor Club on the premise of Adam Grant's "five-minute favor", popularized in his bestselling book <%= link_to "Give and Take", "https://www.adamgrant.net/give-and-take" %>.
+  The idea behind these <i>quick</i> favors is simple: we can all find ways of adding high value to others’ lives at a low personal cost.
+</p>
+
+<p style='text-align: center; margin: 20px;'>
+  Our network is an <strong>invite-only community of do'ers that believe in helping others <i>conveniently</i> but <i>impactfully</i></strong>.
+  This philosophy and behavior is contagious, and by paying it forward, the return on a favor fulfilled could be exponential.
+</p>
+
+<p style='text-align: center; margin: 20px;'>To join us, please sign up at <%= link_to "this link", "https://quick-favor-club.herokuapp.com/users/sign_up" %> and be sure to list <strong><%= @referral.user.full_name %></strong> as your referrer. &#128522;</p>
+<p style='text-align: center; margin: 20px;'>If you have any questions or concerns, feel free to drop a note to this email.</p>
+<p style='text-align: center; margin: 20px;'>We're excited to have you be part of our community!</p>
 <p style='text-align: center; margin: 20px;'>Cheers,</p>
 <p style='text-align: center; margin: 20px;'>The Quick Favor Team</p>

@@ -43,4 +43,20 @@ class UserMailer < ApplicationMailer
       subject: "Welcome to the Quick Favor Club!"
       )
   end
+
+  def reject
+    @admin_emails = []
+    User.all.each do |user|
+      if user.admin == true
+        @admin_emails << user.email
+      end
+    end
+    @user = params[:user]
+
+    mail(
+      to: @user.email,
+      bcc: @admin_emails,
+      subject: "A Note from the Quick Favor Club"
+      )
+  end
 end

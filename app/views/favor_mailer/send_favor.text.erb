@@ -1,23 +1,18 @@
 Hey there!
 
-A new favor request just came in from <%= @favor.user.city %>-based <%= @favor.user.full_name %>!
+A new favor request just come in from <%= @favor.user.city %>-based <%= @favor.user.full_name %>!
 
 Favor: <%= @favor.favor %>
-
 Significance: <%= @favor.significance %>
-
-Details: <%= @favor.details %>
-
 <% if @favor.link.present? %>
-  Link: <%= @favor.link %>
+   Link: <%= @favor.link %>
 <% end %>
-
-Contact: <%= @favor.user.email %>
+Feel free to email <%= @favor.user.first_name %> directly at <%= @favor.user.email %>.
 
 More about <%= @favor.user.full_name %>: <%= @favor.introduction %>
 Fun fact: <%= @favor.user.funfact %>
 
-If you're able to help out, please pay it forward - it should be quick. :)
+If you're able to help, pay it forward! It should be quick. ;)
 
 Cheers,
 

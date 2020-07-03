@@ -47,9 +47,11 @@
             <% end %>
           </li>
         <% else %>
+          <li class="nav-item">
             <%= link_to destroy_user_session_path, method: :delete, class: "text-right mr-3 nav-link-button" do %>
-              <i class="fas fa-home"></i> &nbsp; About
+              <i class="fas fa-home"></i> &nbsp; Home
             <% end %>
+          </li>
         <% end %>
       <% else %>
         <li class="nav-item">

@@ -1,14 +1,19 @@
 Hey <%= @referral.first_name %>!
-
 Your buddy <%= @referral.user.full_name %> has invited you to be part of the Quick Favor Club!
 
-We’re a close community of passionate do’ers looking to help each other out with quick favors!
+A little about us...
 
-To join us, please sign up at <%= link_to "this link", "https://quick-favor-club.herokuapp.com/users/sign_up" %> and be sure to list <%= @referral.user.full_name %> as your referrer. :)
-If you have any trouble, feel free to reply to this email with any questions or concerns.
+
+We started the Quick Favor Club on the premise of Adam Grant's "five-minute favor", popularized in his bestselling book <%= link_to "Give and Take", "https://www.adamgrant.net/give-and-take" %>.
+The idea behind these quick favors is simple: we can all find ways of adding high value to others’ lives at a low personal cost.
+
+Our network is an invite-only community of do'ers that believe in helping others conveniently but impactfully.
+This philosophy and behavior is contagious, and by paying it forward, the return on a favor fulfilled could be exponential.
+
+To join us, please sign up at <%= link_to "this link", "https://quick-favor-club.herokuapp.com/users/sign_up" %> and be sure to list <%= @referral.user.full_name %> as your referrer.
+If you have any questions or concerns, feel free to drop a note to this email.
 
 We're excited to have you be part of our community!
 
 Cheers,
-
 The Quick Favor Team

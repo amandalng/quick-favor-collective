@@ -38,6 +38,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.status = "rejected"
     @user.save
 
+    UserMailer.with(user: @user).reject.deliver_now
     redirect_to users_path
   end
 

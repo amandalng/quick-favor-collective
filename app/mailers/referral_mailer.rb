@@ -10,7 +10,7 @@ class ReferralMailer < ApplicationMailer
 
     mail(
       to: @referral.email,
-      subject: "You've been invited to join the Quick Favor Club!"
+      subject: "Quick Favor Club: You've been invited!"
       )
   end
 
