@@ -17,7 +17,7 @@ class ReferralsController < ApplicationController
   end
 
   def index
-    @referrals = Referral.all
+    @referrals = Referral.all.sort_by(&:created_at).reverse
   end
 
   def show
