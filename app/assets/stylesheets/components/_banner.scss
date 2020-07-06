@@ -2,8 +2,9 @@
   width: 100vw;
   height: 100vh;
   margin-top: 0px;
-  padding: 50px 5%;
   padding-top: 100px;
+  padding-left: 5%;
+  padding-right: 5%;
   background-image: linear-gradient(to bottom, #507A8C, #D5E6EE);
   //background-image: linear-gradient(
   //        rgba(0, 0, 0, 0.5),
@@ -23,10 +24,34 @@
 
 .quote-tag {
   font-size: 14px;
-  margin: 2vh;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
   background: #E8E8E8;
   opacity: .9;
   color: #24404F;
   padding: 20px;
   border-radius: 20px;
+}
+
+.logoHome {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+@media(max-width: 768px) {
+  .logoHome {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  }
+
+  .quote-tag {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  }
 }
