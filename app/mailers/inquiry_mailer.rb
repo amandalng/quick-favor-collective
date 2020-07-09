@@ -17,7 +17,7 @@ class InquiryMailer < ApplicationMailer
 
     mail(
       to: @admin_emails,
-      subject: "Quick Favor Club: New Inquiry"
+      subject: "QFC: New Inquiry"
       )
   end
 end

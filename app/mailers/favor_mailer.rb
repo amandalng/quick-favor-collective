@@ -16,7 +16,7 @@ class FavorMailer < ApplicationMailer
 
     mail(
       bcc: @user_emails,
-      subject: "Quick Favor Club: New Favor Request!"
+      subject: "QFC: New Favor Request from #{@favor.user.first_name}!"
       )
   end
 end

@@ -24,7 +24,7 @@ class UserMailer < ApplicationMailer
 
     mail(
       to: @admin_emails,
-      subject: "Quick Favor Club: New Member to Verify"
+      subject: "QFC: #{@user.full_name} just signed up!"
       )
   end
 

@@ -11,7 +11,7 @@ class ResponseMailer < ApplicationMailer
     mail(
       to: @response.favor.user.email,
       cc: @response.user.email,
-      subject: "Quick Favor Club: Favor Response"
+      subject: "QFC: Favor Response from #{@response.user.full_name}"
       )
   end
 end
