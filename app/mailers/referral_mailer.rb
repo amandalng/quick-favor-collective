@@ -25,7 +25,7 @@ class ReferralMailer < ApplicationMailer
 
     mail(
       to: @admin_emails,
-      subject: "QFC: New Referral by #{@referral.user.full_name}"
+      subject: "QFC: #{@referral.user.full_name} just invited #{@referral.first_name} #{@referral.last_name}"
       )
   end
 end
