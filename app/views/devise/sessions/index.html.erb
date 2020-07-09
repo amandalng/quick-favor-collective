@@ -53,14 +53,14 @@
 
   <select id="cities" name="cities" class="btn-dropdown btn-block">
     <option> All cities </option>
-    <% @cities.each do |city| %>
+    <% @cities.sort.each do |city| %>
       <option value= <%= city %>> <%= city %> </option>
     <% end %>
   </select>
 
   <select id="industries" name="industries" class="btn-dropdown btn-block mb-2">
     <option> All industries </option>
-    <% @industries.each do |industry| %>
+    <% @industries.sort.each do |industry| %>
       <option value= <%= industry %>> <%= industry %> </option>
     <% end %>
   </select>
