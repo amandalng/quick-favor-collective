@@ -26,7 +26,7 @@
               <div class="d-flex align-items-center mb-2">
                 <div class="avatar-small">
                   <% if user.photo.attached? %>
-                    <%= cl_image_tag user.photo.key, height: 45, width: 45, crop: :fill, format: :png, class: "avatar" %>
+                    <%= cl_image_tag user.photo.key, height: 45, width: 45, crop: :fill, format: :png, class: "avatar-small" %>
                   <% else %>
                     <img src="https://res.cloudinary.com/dy9chfa8l/image/upload/v1593341330/profile-avatar_3x_pxypn2.png" class="avatar-small" alt="profile-image">
                   <% end %>
@@ -87,7 +87,7 @@
               <div class="d-flex align-items-center mb-2">
                 <div class="avatar-small">
                   <% if user.photo.attached? %>
-                    <%= cl_image_tag user.photo.key, height: 45, width: 45, crop: :fill, format: :png, class: "avatar" %>
+                    <%= cl_image_tag user.photo.key, height: 45, width: 45, crop: :fill, format: :png, class: "avatar-small" %>
                   <% else %>
                     <img src="https://res.cloudinary.com/dy9chfa8l/image/upload/v1593341330/profile-avatar_3x_pxypn2.png" class="avatar-small" alt="profile-image">
                   <% end %>
