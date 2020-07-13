@@ -24,7 +24,7 @@
           <tr data-link="<%= user_path(user) %>" >
             <td class="city-industry">
               <p class="user-name my-0"><strong><%= user.full_name %></strong></p>
-              <div class="my-1"><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag ml-0"><%= user.industry %></a></div>
+              <div class="my-1"><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag" style="display:none"><%= user.country %></a><a class="city-industry-tag ml-0"><%= user.industry %></a></div>
               <p class="mb-1"><%= user.oneliner %></p>
               <p class="mb-1"><strong>Fun fact:</strong> <%= user.funfact %></p>
               <p class="mb-2"><strong>Date of birth:</strong> <%= user.birthdate.to_formatted_s(:long) %> (<%= user.age %> years old)</p>
@@ -53,10 +53,10 @@
 
   <input type="name" placeholder="Find a member..." class="form-control mt-2 mb-2" id="userSearch" >
 
-  <select id="cities" name="cities" class="btn-dropdown btn-block">
-    <option> All cities </option>
-    <% @cities.sort.each do |city| %>
-      <option value= <%= city %>> <%= city %> </option>
+  <select id="countries" name="countries" class="btn-dropdown btn-block">
+    <option> All countries </option>
+    <% @countries.sort.each do |country| %>
+      <option value= <%= country %>> <%= country %> </option>
     <% end %>
   </select>
 
@@ -74,7 +74,7 @@
           <tr data-link="<%= user_path(user) %>" class="userRow" >
             <td class="city-industry">
               <p class="user-name my-0"><strong><%= user.full_name %></strong></p>
-              <div class="my-1"><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag ml-0"><%= user.industry %></a></div>
+              <div class="my-1"><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag" style="display:none"><%= user.country %></a><a class="city-industry-tag ml-0"><%= user.industry %></a></div>
               <p class="mb-2"><%= user.oneliner %></p>
             </td>
           </tr>

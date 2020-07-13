@@ -47,6 +47,15 @@ class Users::SessionsController < Devise::SessionsController
         end
       end
     end
+
+    @countries = []
+    User.all.each do |user|
+      if @countries.include?(user.country) == false
+        if user.status == "verified"
+          @countries << user.country
+        end
+      end
+    end
   end
 
   def show
