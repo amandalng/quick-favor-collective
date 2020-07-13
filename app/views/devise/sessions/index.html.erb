@@ -29,12 +29,12 @@
               <p class="mb-1"><strong>Fun fact:</strong> <%= user.funfact %></p>
               <p class="mb-2"><strong>Date of birth:</strong> <%= user.birthdate.to_formatted_s(:long) %> (<%= user.age %> years old)</p>
               <% if @user_names.include?(user.referrer) %>
-                <div class="d-flex" data-no-turbolink>
+                <div class="d-flex">
                   <p class="flex-grow-1"><strong>Referred by:</strong> <%= user.referrer %> <i class="fas fa-check-circle"></i></p>
                   <%= link_to "Verify", user_path(user), class: "mr-1", method: "patch", :data => { :confirm => "Are you sure you want to verify this member?", :no_turbolink => true }  %> | <%= link_to "Reject", user_path(user), class: "ml-1", method: "put", :data => { :confirm => "Are you sure you want to reject this member?", :no_turbolink => true }  %>
                 </div>
               <% else %>
-                <div class="d-flex" data-no-turbolink>
+                <div class="d-flex">
                   <p class="flex-grow-1"><strong>Referred by:</strong> <%= user.referrer %> <i class="fas fa-times-circle"></i></p>
                   <%= link_to "Verify", user_path(user), class: "mr-1", method: "patch", :data => { :confirm => "Are you sure you want to verify this member?", :no_turbolink => true }  %> | <%= link_to "Reject", user_path(user), class: "ml-1", method: "put", :data => { :confirm => "Are you sure you want to reject this member?", :no_turbolink => true }  %>
                 </div>
