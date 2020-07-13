@@ -27,6 +27,10 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def age
+    Date.today.year - birthdate.year
+  end
+
 
   private
 

@@ -25,7 +25,9 @@
             <td class="city-industry">
               <p class="user-name my-0"><strong><%= user.full_name %></strong></p>
               <div class="my-1"><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag ml-0"><%= user.industry %></a></div>
-              <p class="mb-2"><%= user.oneliner %></p>
+              <p class="mb-1"><%= user.oneliner %></p>
+              <p class="mb-1"><strong>Fun fact:</strong> <%= user.funfact %></p>
+              <p class="mb-2"><strong>Date of birth:</strong> <%= user.birthdate.to_formatted_s(:long) %> (<%= user.age %> years old)</p>
               <% if @user_names.include?(user.referrer) %>
                 <div class="d-flex">
                   <p class="flex-grow-1"><strong>Referred by:</strong> <%= user.referrer %> <i class="fas fa-check-circle"></i></p>
