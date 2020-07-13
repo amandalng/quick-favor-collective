@@ -20,13 +20,13 @@ countryInput.addEventListener("change", (e) => {
     row.classList.remove("inactive-row")
     if (country === "All countries" || country === "Select country") {
       row.classList.remove("inactive-row")
-    } else if (row.firstElementChild.textContent.split('\n')[2].includes(country) === false || row.firstElementChild.textContent.split('\n')[1].toUpperCase().includes(nameInput) === false) {
+    } else if (row.firstElementChild.textContent.split('\n')[7].includes(country) === false || row.firstElementChild.textContent.split('\n')[6].toUpperCase().includes(nameInput) === false) {
       row.classList.add("inactive-row")
     }
   })
   tableRow.forEach((row) => {
   let industry = industryInput.value
-    if ((row.firstElementChild.textContent.split('\n')[2].includes(industry) === false && industry != "All industries") || (row.firstElementChild.textContent.split('\n')[1].toUpperCase().includes(nameInput) === false)) {
+    if ((row.firstElementChild.textContent.split('\n')[7].includes(industry) === false && industry != "All industries") || (row.firstElementChild.textContent.split('\n')[6].toUpperCase().includes(nameInput) === false)) {
       row.classList.add("inactive-row")
     }
   })
@@ -39,13 +39,13 @@ industryInput.addEventListener("change", (e) => {
     row.classList.remove("inactive-row")
     if (industry === "All industries" || industry === "Select industries") {
       row.classList.remove("inactive-row")
-    } else if (row.firstElementChild.textContent.split('\n')[2].includes(industry) === false || row.firstElementChild.textContent.split('\n')[1].toUpperCase().includes(nameInput) === false) {
+    } else if (row.firstElementChild.textContent.split('\n')[7].includes(industry) === false || row.firstElementChild.textContent.split('\n')[6].toUpperCase().includes(nameInput) === false) {
       row.classList.add("inactive-row")
     }
   })
   tableRow.forEach((row) => {
   let country = countryInput.value
-    if ((row.firstElementChild.textContent.split('\n')[2].includes(country) === false && country != "All countries") || (row.firstElementChild.textContent.split('\n')[1].toUpperCase().includes(nameInput) === false)) {
+    if ((row.firstElementChild.textContent.split('\n')[7].includes(country) === false && country != "All countries") || (row.firstElementChild.textContent.split('\n')[6].toUpperCase().includes(nameInput) === false)) {
       row.classList.add("inactive-row")
     }
   })
@@ -57,10 +57,10 @@ userInput.addEventListener("keyup", (e) => {
   let industry = industryInput.value
   tableRow.forEach((row) => {
     row.classList.remove("inactive-row")
-    if (row.firstElementChild.textContent.split('\n')[1].toUpperCase().includes(nameInput) === false || (row.firstElementChild.textContent.split('\n')[2].includes(country) === false && country != "All countries") || (row.firstElementChild.textContent.split('\n')[2].includes(industry) === false && industry != "All industries")) {
+    if (row.firstElementChild.textContent.split('\n')[6].toUpperCase().includes(nameInput) === false || (row.firstElementChild.textContent.split('\n')[7].includes(country) === false && country != "All countries") || (row.firstElementChild.textContent.split('\n')[7].includes(industry) === false && industry != "All industries")) {
       row.classList.add("inactive-row")
     }
-    if (nameInput === "" && (row.firstElementChild.textContent.split('\n')[2].includes(country) === false && country != "All countries") && (row.firstElementChild.textContent.split('\n')[2].includes(industry) === false && industry != "All industries")) {
+    if (nameInput === "" && (row.firstElementChild.textContent.split('\n')[7].includes(country) === false && country != "All countries") && (row.firstElementChild.textContent.split('\n')[7].includes(industry) === false && industry != "All industries")) {
       row.classList.remove("inactive-row")
 
     }
