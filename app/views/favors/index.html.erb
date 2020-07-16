@@ -42,8 +42,8 @@
                   <%= link_to "Message #{favor.user.first_name}", new_favor_response_path(favor), class: "btn btn-primary btn-block" %>
                 </div>
               <% else %>
-                <p class="mt-0 pb-1 mb-0"><%= favor.significance %></p>
-                <%= link_to "Learn more", favor_path(favor), class: "btn-learn" %>
+                <p class="mt-0 pb-1 mb-3"><%= favor.significance %></p>
+                <%= link_to "Learn more", favor_path(favor), class: "btn-learn favor-message" %>
               <% end %>
 
             </div>
