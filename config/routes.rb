@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   end
   resources :referrals, only: [ :index, :show ]
   resources :favors, only: [ :index, :show ] do
+    member do
+      get 'confirmation'
+    end
     resources :responses, only: [:new, :create]
   end
   resources :inquiries, only: [ :create, :index, :update ]

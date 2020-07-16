@@ -1,5 +1,7 @@
 <div class="container">
-  <h2 class="mb-4 text-center">Favor Details</h2>
+<h2 class="mb-4 text-center">&#128079; Favor submitted! &#128079;</h2>
+
+<p class="center">Here's what everyone gets to see:</p>
 
   <div class="favor-container mb-3">
     <%= link_to user_path(@favor.user), :action => 'go' do %>
@@ -32,4 +34,6 @@
     <p><strong>Fun fact:</strong> <%= @favor.user.funfact %></p>
   </div>
 
+
+<%= link_to "< see all favors", favors_path, class: "center mt-4" %>
 </div>

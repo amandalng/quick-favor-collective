@@ -10,7 +10,7 @@ class FavorsController < ApplicationController
 
     if @favor.save
       FavorMailer.with(favor: @favor).send_favor.deliver_now
-      redirect_to favor_path(@favor)
+      redirect_to confirmation_favor_path(@favor)
      else
       render 'new'
     end
@@ -27,6 +27,10 @@ class FavorsController < ApplicationController
   def favors
     @favors = Favor.where(user: User.find(params[:user_id])).sort_by(&:created_at).reverse
     @user = User.find(params[:user_id])
+  end
+
+  def confirmation
+    @favor = Favor.find(params[:id])
   end
 
   def show

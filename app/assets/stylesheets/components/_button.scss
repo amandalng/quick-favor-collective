@@ -42,6 +42,20 @@
   color: white;
 }
 
+.btn-learn {
+  color: #24404F;
+  margin: auto;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.btn-learn:hover {
+  color: #507A8C;
+  text-decoration: underline;
+}
+
 .btn-contact {
   background-color: #507A8C;
   color: #D5E6EE;
