@@ -11,8 +11,11 @@
 <p style='margin: 0 20px;'><strong>More about <%= @favor.user.full_name %>:</strong> <%= @favor.introduction %></p>
 <p style='margin: 0 20px;'><strong>Fun fact:</strong> <%= @favor.user.funfact %></p>
 
+<p style='margin: 20px;'>To see recent favors, go to <%= link_to "this link", "https://www.quickfavor.club/favors" %>!</p>
+
 <p style='margin: 20px;'>If you're able to help, pay it forward! It should be quick. &#128522;</p>
 
 <p style='text-align: center; margin: 20px;'>Cheers,</p>
 
-<p style='text-align: center; margin: 20px;'>The Quick Favor Team</p>
+<p style='text-align: center; margin: 0px;'>The Quick Favor Team</p>
+<p style='text-align: center; margin: 0px;'><%= link_to "www.quickfavor.club", "https://www.quickfavor.club" %></p>
