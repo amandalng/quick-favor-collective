@@ -38,7 +38,7 @@
         </p>
         <p><strong>Referred by</strong>: <%= @user.referrer %></p>
 
-        <% if @user.status = "unverified" %>
+        <% if @user.status == "unverified" %>
           <div class="d-flex align-items-center mt-5">
           <p><strong>Action Required:</strong></p>
           <p class="flex-grow-1 text-right"><%= link_to "Verify", user_path(@user), class: "mr-1 btn", method: "patch", :data => { :confirm => "Are you sure you want to verify this member?", turbolinks: false }  %> <%= link_to "Reject", user_path(@user), class: "btn ml-1", method: "put", :data => { :confirm => "Are you sure you want to reject this member?", turbolinks: false }  %></p>
