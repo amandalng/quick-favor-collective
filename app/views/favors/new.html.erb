@@ -8,9 +8,9 @@
     <%#= f.input :details, label: "What exactly do you need people to do?", placeholder: "E.g. This video contains tips for simple behavior changes for a healthier world. Would appreciate if you could like, share, forward, etc. the link below.", :as => :text, :input_html => { 'rows' => 4} %>
     <%= f.input :link, label: 'Link (if applicable)', placeholder: "e.g. www.linktoshare.com" %>
 
-    <%= f.input :location, as: :check_boxes, collection: @countries.sort_by { |s| [s == 'All' ? 0 : 1, s] }, label: "Want to target members a specific geography?", hint: "No selection will also send an email to all QFC members" %>
+    <%= f.input :location, as: :check_boxes, collection: @countries.sort_by { |s| [s == 'All' ? 0 : 1, s] }, label: "Which countries would you like to target?" %>
 
-    <%= f.input :industry, as: :check_boxes, collection: @industries.sort_by { |s| [s == 'All' ? 0 : 1, s] }, label: "Want to target members a specific field?", hint: "No selection will also send an email to all QFC members" %>
+    <%= f.input :industry, as: :check_boxes, collection: @industries.sort_by { |s| [s == 'All' ? 0 : 1, s] }, label: "Which industries would you like to target?" %>
 
     <div class="center">
       <%= f.button :submit, 'Submit', class: "btn btn-primary btn-block mt-2 mb-4", data: { confirmation: "You sure?"} %>
