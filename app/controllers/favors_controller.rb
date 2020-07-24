@@ -1,12 +1,32 @@
 class FavorsController < ApplicationController
   def new
     @favor = Favor.new
+
+    @countries = [ ]
+    User.all.each do |user|
+      if @countries.include?(user.country) == false
+        if user.status == "verified"
+          @countries << user.country
+        end
+      end
+    end
+
+    @industries = [ ]
+    User.all.each do |user|
+      if @industries.include?(user.industry) == false
+        if user.status == "verified"
+          @industries << user.industry
+        end
+      end
+    end
   end
 
   def create
     @favor = Favor.new(favor_params)
     @favor.user = current_user
 
+    @favor.location = params["favor"]["location"].join(" ")
+    @favor.industry = params["favor"]["industry"].join(" ")
 
     if @favor.save
       FavorMailer.with(favor: @favor).send_favor.deliver_now
@@ -40,6 +60,6 @@ class FavorsController < ApplicationController
   private
 
   def favor_params
-    params.require(:favor).permit(:favor, :details, :significance, :link, :introduction)
+    params.require(:favor).permit(:favor, :details, :significance, :link, :introduction, :location, :industry)
   end
 end

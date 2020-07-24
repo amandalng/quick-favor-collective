@@ -6,13 +6,21 @@ class FavorMailer < ApplicationMailer
   #   en.favor_mailer.send_favor.subject
   #
   def send_favor
+    @favor = params[:favor]
     @user_emails = []
     User.all.each do |user|
       if user.status == "verified"
-        @user_emails << user.email
+        if @favor.location == "" && @favor.industry == ""
+          @user_emails << user.email
+        elsif @favor.location.include?(user.country)
+          @user_emails << user.email
+        else
+          if @favor.industry.include?(user.industry)
+            @user_emails << user.email
+          end
+        end
       end
     end
-    @favor = params[:favor]
 
     mail(
       bcc: @user_emails,
