@@ -20,7 +20,7 @@
       <br>
       <%= f.input :first_name %>
       <%= f.input :last_name %>
-      <%= f.input :birthdate, label: "Date of Birth", as: :date, start_year: Date.today.year - 40,
+      <%= f.input :birthdate, label: "Date of Birth", as: :date, start_year: Date.today.year - 60,
                               end_year: Date.today.year - 12,
                               order: [:day, :month, :year] %>
       <%= f.input :city %>
