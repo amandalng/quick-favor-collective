@@ -2,7 +2,7 @@ class FavorsController < ApplicationController
   def new
     @favor = Favor.new
 
-    @countries = [ ]
+    @countries = [ "All" ]
     User.all.each do |user|
       if @countries.include?(user.country) == false
         if user.status == "verified"
@@ -11,7 +11,7 @@ class FavorsController < ApplicationController
       end
     end
 
-    @industries = [ ]
+    @industries = [ "All" ]
     User.all.each do |user|
       if @industries.include?(user.industry) == false
         if user.status == "verified"

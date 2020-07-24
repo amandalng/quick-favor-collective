@@ -10,7 +10,7 @@ class FavorMailer < ApplicationMailer
     @user_emails = []
     User.all.each do |user|
       if user.status == "verified"
-        if @favor.location == "" && @favor.industry == ""
+        if (@favor.location.include?("All") && @favor.industry.include?("All")) || (@favor.location == "" && @favor.industry == "") || (@favor.location == "" && @favor.industry.include?("All")) || (@favor.industry == "" && @favor.location.include?("All"))
           @user_emails << user.email
         elsif @favor.location.include?(user.country)
           @user_emails << user.email
@@ -21,6 +21,8 @@ class FavorMailer < ApplicationMailer
         end
       end
     end
+
+    raise
 
     mail(
       bcc: @user_emails,
