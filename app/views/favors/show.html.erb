@@ -1,7 +1,6 @@
 <div class="container">
-  <h2 class="mb-4 text-center">Favor Details</h2>
 
-  <div class="favor-container mb-3">
+  <div class="favor-container mt-3 mb-3">
     <%= link_to user_path(@favor.user), :action => 'go' do %>
     <div class="d-flex align-items-center favor-profile mb-3">
       <% if @favor.user.photo.attached? %>
