@@ -46,7 +46,7 @@
 
     <% @inquiries.each do |inquiry| %>
       <% if inquiry.responded == true %>
-        <div class="favor-container">
+        <div class="favor-container mb-3">
           <p><strong>Subject</strong>: <%= inquiry.subject %></p>
           <% if inquiry.message.present? %>
             <p><strong>Message</strong>: <%= inquiry.message %></p>
