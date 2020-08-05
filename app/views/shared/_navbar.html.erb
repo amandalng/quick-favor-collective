@@ -9,28 +9,33 @@
         <% if current_user.status == "verified" %>
           <li class="nav-item">
             <%= link_to about_path, class: "text-right mr-3 nav-link-button" do %>
-              <i class="fas fa-home"></i> &nbsp; About
+              <i class="fas fa-home"></i> &nbsp; Home
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to favors_path, class: "text-right mr-3 nav-link-button" do %>
-              <i class="fas fa-hands-helping"></i> &nbsp; Favors
+            <%= link_to new_user_favor_path(current_user), class: "text-right mr-3 nav-link-button" do %>
+              <i class="fas fa-hands-helping"></i> &nbsp; Request a Favor
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to users_path, class: "text-right mr-3 nav-link-button"  do %>
-              <i class="fas fa-users"></i> &nbsp; Community
+              <i class="fas fa-users"></i> &nbsp; Meet the Community
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to new_user_referral_path(current_user), class: "text-right mr-3 nav-link-button"  do %>
+              <i class="fas fa-user-friends"></i> &nbsp; Invite a Friend
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to user_path(current_user), class: "text-right mr-3 nav-link-button"  do %>
-              <i class="fas fa-user"></i> &nbsp; Profile
+              <i class="fas fa-user"></i> &nbsp; View Profile
             <% end %>
           </li>
           <% if current_user.admin == false %>
             <li class="nav-item">
               <%= link_to contact_path, class: "text-right mr-3 nav-link-button" do %>
-                <i class="fas fa-comments"></i> &nbsp; Contact
+                <i class="fas fa-comments"></i> &nbsp; Contact Us
               <% end %>
             </li>
           <% else %>
@@ -41,11 +46,6 @@
             </li>
           <% end %>
 
-          <li class="nav-item">
-            <%= link_to destroy_user_session_path, method: :delete, class: "text-right mr-3 nav-link-button" do %>
-              <i class="fas fa-sign-out-alt"></i> &nbsp; Log Out
-            <% end %>
-          </li>
         <% else %>
           <li class="nav-item">
             <%= link_to destroy_user_session_path, method: :delete, class: "text-right mr-3 nav-link-button" do %>
@@ -56,12 +56,12 @@
       <% else %>
         <li class="nav-item">
           <%= link_to about_path, class: "text-right mr-3 nav-link-button" do %>
-            <i class="fas fa-home"></i> &nbsp; About
+            <i class="fas fa-home"></i> &nbsp; About the QFC
           <% end %>
         </li>
         <li class="nav-item">
           <%= link_to contact_path, class: "text-right mr-3 nav-link-button" do %>
-            <i class="fas fa-comments"></i> &nbsp; Contact
+            <i class="fas fa-comments"></i> &nbsp; Contact Us
           <% end %>
         </li>
         <li class="nav-item">

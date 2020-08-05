@@ -49,11 +49,15 @@
       <%#= link_to "See Past Favors", user_favors_path(@user), class: "btn btn-secondary btn-block" %>
 
       <% if @user == current_user %>
-        <%= link_to "Edit Profile", edit_user_registration_path(@user), class: "btn btn-primary btn-block mt-4" %>
+        <%= link_to "Edit Profile", edit_user_registration_path(@user), class: "btn btn-primary btn-block mt-4 mb-3" %>
+        <div class="center">
+          <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+        </div>
       <% end %>
       <% if @user != current_user && current_user.admin == false %>
         <%= link_to "Want an introduction?", contact_path, class: "btn btn-primary btn-block mt-4" %>
       <% end %>
+
     </div>
   </div>
 </div>

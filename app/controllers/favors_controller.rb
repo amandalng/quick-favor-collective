@@ -30,7 +30,7 @@ class FavorsController < ApplicationController
 
     if @favor.save
       FavorMailer.with(favor: @favor).send_favor.deliver_now
-      redirect_to confirmation_favor_path(@favor)
+      redirect_to favors_path
      else
       render 'new'
     end
