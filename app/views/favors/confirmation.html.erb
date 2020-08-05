@@ -26,7 +26,7 @@
     <% if @favor.link.present? %>
       <p>
         <strong>Link:</strong>
-        <a id="link" href=<%= @favor.link %>><%= @favor.link.first(30) %>...</a></p>
+        <a id="link" href=<%= @favor.link %>><%= @favor.link.first(34) %>...</a></p>
     <% end %>
     <br>
     <p class="text-center"><strong>More about <%= link_to @favor.user.first_name, user_path(@favor.user) %>:</strong></p>

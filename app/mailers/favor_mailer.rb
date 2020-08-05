@@ -22,8 +22,6 @@ class FavorMailer < ApplicationMailer
       end
     end
 
-    raise
-
     mail(
       bcc: @user_emails,
       subject: "QFC: New Favor Request from #{@favor.user.first_name}!"
