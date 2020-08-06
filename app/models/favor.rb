@@ -8,6 +8,6 @@ class Favor < ApplicationRecord
   validates :user, presence: true
 
   def end_date
-    created_at + 7.days
+    created_at + 30.days
   end
 end

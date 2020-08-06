@@ -1,10 +1,13 @@
 <div class="container">
-  <h2 class="mb-4 text-center">Request a Favor</h2>
+  <h2 class=" text-center">Request a Favor</h2>
+  <div class="center mb-4">
+    <%= link_to "See past favors", favors_path %>
+  </div>
 
   <%= simple_form_for [current_user, @favor] do |f| %>
-    <%= f.input :introduction, label: "Make a quick introduction for yourself - any context relevant to your favor would be useful!", hint: "You may want to take from your profile one-liner: #{current_user.oneliner}", :as => :text, :input_html => { 'rows' => 2}  %>
-    <%= f.input :favor, label: "What's your favor?", hint: "Remember, these should be quick to fulfill & do-able from a computer or mobile device. Examples: Requests for feedback on a product, introductions to people in a particular field, social media circulation of a new article", :as => :text, :input_html => { 'rows' => 2} %>
-    <%= f.input :significance, label: 'Why is this important to you?', :as => :text, :input_html => { 'rows' => 2} %>
+    <%= f.input :introduction, label: "Make a quick introduction for yourself - any context relevant to your favor would be useful!", hint: "Feel free to take from your profile one-liner: #{current_user.oneliner}", :as => :text, :input_html => { 'rows' => 2}  %>
+    <%= f.input :favor, label: "In a line, describe your favor!", hint: "Remember, these should be quick to fulfill & do-able from a computer or mobile device. Examples: Requests for feedback on a product, introductions to people in a particular field, social media circulation of a new article", :as => :text, :input_html => { 'rows' => 2} %>
+    <%= f.input :significance, label: 'Why is this important to you?', :as => :text, :input_html => { 'rows' => 3} %>
     <%#= f.input :details, label: "What exactly do you need people to do?", placeholder: "E.g. This video contains tips for simple behavior changes for a healthier world. Would appreciate if you could like, share, forward, etc. the link below.", :as => :text, :input_html => { 'rows' => 4} %>
     <%= f.input :link, label: 'Link (if applicable)', placeholder: "e.g. www.linktoshare.com" %>
 
