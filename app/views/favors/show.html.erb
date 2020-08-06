@@ -22,7 +22,7 @@
     <p><strong>Significance:</strong> <%= @favor.significance %></p>
     <% if @favor.link.present? %>
       <p><strong>Link:</strong> <a id="link" href=<%= @favor.link %>>
-      <%= @favor.link.first(34) %>...</a></p>
+      <%= @favor.link.first(28) %></a><% if @favor.link.length > 28 %>...<% end %></p>
     <% end %>
     <br>
     <p class="text-center"><strong>More about <%= link_to @favor.user.first_name, user_path(@favor.user) %>:</strong></p>
