@@ -28,6 +28,10 @@
   flex-grow: 1;
 }
 
+.request-date {
+  font-size: 12px;
+}
+
 @media(max-width: 768px) {
   .favors {
     display: grid;

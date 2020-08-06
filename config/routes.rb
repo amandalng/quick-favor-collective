@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get '/favors', to: 'favors#favors'
   end
   resources :referrals, only: [ :index, :show ]
-  resources :favors, only: [ :index, :show ] do
+  resources :favors, only: [ :index, :show, :edit, :update ] do
     member do
       get 'confirmation'
     end

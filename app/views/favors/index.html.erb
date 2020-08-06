@@ -1,7 +1,7 @@
 <div class="container">
   <% if current_user.status == "verified" %>
     <h2 class="text-center mb-2">&#128588; Current Favors &#128588;</h2>
-    <h6 class="mt-0 mb-4 text-center">New favors will be posted online for 30 days!</h6>
+    <h6 class="mt-0 mb-4 text-center">New favors will be posted online for 30 days.</h6>
 
     <% if @favors.nil? %>
 
@@ -36,14 +36,16 @@
 
               <p class="mt-2 mb-1 text-center"><strong>Importance</strong></p>
               <% if favor.user != current_user %>
-                <p class="mt-0 pb-1 mb-3"><%= favor.significance %></p>
+                <p class="mt-0 pb-1 mb-2"><%= favor.significance %></p>
+                <p class="request-date mb-2">Requested on <%= favor.created_at %></p>
                 <%= link_to "See more", favor_path(favor), class: "btn-see mb-5" %>
                 <div class="favor-message">
                   <%= link_to "Message #{favor.user.first_name}", new_favor_response_path(favor), class: "btn btn-primary btn-block" %>
                 </div>
               <% else %>
-                <p class="mt-0 pb-1 mb-3"><%= favor.significance %></p>
-                <%= link_to "See more", favor_path(favor), class: "btn-see favor-message" %>
+                <p class="mt-0 pb-1 mb-2"><%= favor.significance %></p>
+                <p class="request-date mb-4">Requested on <%= favor.created_at %></p>
+                <%= link_to "Edit favor", edit_favor_path(favor), class: "btn-see favor-message" %>
               <% end %>
 
             </div>

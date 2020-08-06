@@ -44,6 +44,20 @@ class FavorsController < ApplicationController
     @favors = Favor.all.sort_by(&:created_at).reverse
   end
 
+  def edit
+    @favor = Favor.find(params[:id])
+  end
+
+  def update
+    @favor = Favor.find(params[:id])
+
+    if @favor.update(favor_params)
+      redirect_to favors_path
+    else
+      render 'edit'
+    end
+  end
+
   def favors
     @favors = Favor.where(user: User.find(params[:user_id])).sort_by(&:created_at).reverse
     @user = User.find(params[:user_id])
