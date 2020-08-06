@@ -9,7 +9,7 @@
     <%= f.input :favor, label: "In a line, describe your favor!", hint: "Remember, these should be quick to fulfill & do-able from a computer or mobile device. Examples: Requests for feedback on a product, introductions to people in a particular field, social media circulation of a new article", :as => :text, :input_html => { 'rows' => 2} %>
     <%= f.input :significance, label: 'Why is this important to you?', :as => :text, :input_html => { 'rows' => 3} %>
     <%#= f.input :details, label: "What exactly do you need people to do?", placeholder: "E.g. This video contains tips for simple behavior changes for a healthier world. Would appreciate if you could like, share, forward, etc. the link below.", :as => :text, :input_html => { 'rows' => 4} %>
-    <%= f.input :link, label: 'Link (if applicable)', placeholder: "e.g. www.linktoshare.com" %>
+    <%= f.input :link, label: 'Link (if applicable)', placeholder: "e.g. http://www.linktoshare.com" %>
 
     <%= f.input :location, as: :check_boxes, collection: @countries.sort_by { |s| [s == 'All' ? 0 : 1, s] }, label: "Which countries would you like to target?" %>
 
