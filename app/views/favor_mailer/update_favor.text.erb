@@ -1,0 +1,22 @@
+Hey there!
+
+<%= @favor.user.full_name %> has just updated a favor request!
+
+Favor: <%= @favor.favor %>
+Significance: <%= @favor.significance %>
+<% if @favor.link.present? %>
+   Link: <%= @favor.link %>
+<% end %>
+Feel free to email <%= @favor.user.first_name %> directly at <%= @favor.user.email %>.
+
+More about <%= @favor.user.full_name %>: <%= @favor.introduction %>
+Fun fact: <%= @favor.user.funfact %>
+
+To see recent favors, go to <%= link_to "this link", "https://www.quickfavor.club/favors" %>!
+
+If you're able to help, pay it forward! It should be quick. ;)
+
+Cheers,
+
+The Quick Favor Team
+<%= link_to "www.quickfavor.club", "https://www.quickfavor.club" %>

@@ -1,0 +1,21 @@
+<p style='text-align: center; margin: 20px;'>Hey there!</p>
+<p style='text-align: center; margin: 20px;'><strong><%= @favor.user.full_name %> has just updated a favor request!</strong> &#128075;</p>
+
+<p style='margin: 20px;'><strong>Favor:</strong> <%= @favor.favor %></p>
+<p style='margin: 20px;'><strong>Significance:</strong> <%= @favor.significance %></p>
+<% if @favor.link.present? %>
+   <p style='margin: 20px;'><strong>Link:</strong> <%= @favor.link %></p>
+<% end %>
+<p style='text-align: center; margin: 20px;'>Feel free to email <%= @favor.user.first_name %> directly at <u><%= @favor.user.email %></u>.</p>
+
+<p style='margin: 0 20px;'><strong>More about <%= @favor.user.full_name %>:</strong> <%= @favor.introduction %></p>
+<p style='margin: 0 20px;'><strong>Fun fact:</strong> <%= @favor.user.funfact %></p>
+
+<p style='margin: 20px;'>To see recent favors, go to <%= link_to "this link", "https://www.quickfavor.club/favors" %>!</p>
+
+<p style='margin: 20px;'>If you're able to help, pay it forward! It should be quick. &#128522;</p>
+
+<p style='text-align: center; margin: 20px;'>Cheers,</p>
+
+<p style='text-align: center; margin: 0px;'>The Quick Favor Team</p>
+<p style='text-align: center; margin: 0px;'><%= link_to "www.quickfavor.club", "https://www.quickfavor.club" %></p>

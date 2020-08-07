@@ -12,11 +12,10 @@
     <%= f.input :link, label: 'Link (if applicable)', placeholder: "e.g. http://www.linktoshare.com" %>
 
     <%= f.input :location, as: :check_boxes, collection: @countries.sort_by { |s| [s == 'All' ? 0 : 1, s] }, label: "Which countries would you like to target?" %>
-
     <%= f.input :industry, as: :check_boxes, collection: @industries.sort_by { |s| [s == 'All' ? 0 : 1, s] }, label: "Which industries would you like to target?" %>
 
     <div class="center">
-      <%= f.button :submit, 'Submit', class: "btn btn-primary btn-block mt-2 mb-4" %>
+      <%= f.button :submit, 'Submit', class: "btn btn-primary btn-block mt-2 mb-4", :data => { :confirm => "You sure you got everything? An email will be blasted sharing your favor!"} %>
     </div>
   <% end %>
 </div>

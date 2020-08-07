@@ -46,12 +46,34 @@ class FavorsController < ApplicationController
 
   def edit
     @favor = Favor.find(params[:id])
+
+    @countries = [ "All" ]
+    User.all.each do |user|
+      if @countries.include?(user.country) == false
+        if user.status == "verified"
+          @countries << user.country
+        end
+      end
+    end
+
+    @industries = [ "All" ]
+    User.all.each do |user|
+      if @industries.include?(user.industry) == false
+        if user.status == "verified"
+          @industries << user.industry
+        end
+      end
+    end
   end
 
   def update
     @favor = Favor.find(params[:id])
+    @favor.update(favor_params)
+    @favor.location = params["favor"]["location"].join(" ")
+    @favor.industry = params["favor"]["industry"].join(" ")
 
-    if @favor.update(favor_params)
+    if @favor.save
+      FavorMailer.with(favor: @favor).update_favor.deliver_now
       redirect_to favors_path
     else
       render 'edit'

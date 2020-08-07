@@ -27,4 +27,27 @@ class FavorMailer < ApplicationMailer
       subject: "QFC: New Favor Request from #{@favor.user.first_name}!"
       )
   end
+
+  def update_favor
+    @favor = params[:favor]
+    @user_emails = []
+    User.all.each do |user|
+      if user.status == "verified"
+        if (@favor.location.include?("All") && @favor.industry.include?("All")) || (@favor.location == "" && @favor.industry == "") || (@favor.location == "" && @favor.industry.include?("All")) || (@favor.industry == "" && @favor.location.include?("All"))
+          @user_emails << user.email
+        elsif @favor.location.include?(user.country)
+          @user_emails << user.email
+        else
+          if @favor.industry.include?(user.industry)
+            @user_emails << user.email
+          end
+        end
+      end
+    end
+
+    mail(
+      bcc: @user_emails,
+      subject: "QFC: Updated Favor Request from #{@favor.user.first_name}!"
+      )
+  end
 end
