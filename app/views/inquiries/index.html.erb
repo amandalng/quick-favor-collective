@@ -53,11 +53,11 @@
           <% end %>
           <% if inquiry.user.present? %>
             <p class="mb-0"><strong>Posted by</strong>: <%= inquiry.user.full_name %></p>
-            <p><strong>Contact</strong>: <%= inquiry.user.email %></p>
+            <p><strong>Contact</strong>: <%= inquiry.user.email.first(30) %></p>
           <% end %>
           <% if inquiry.first_name.present? %>
             <p class="mb-0"><strong>Posted by</strong>: <%= inquiry.first_name %> <%= inquiry.last_name %></p>
-            <p><strong>Contact</strong>: <%= inquiry.email %></p>
+            <p><strong>Contact</strong>: <%= inquiry.email.first(30) %></p>
           <% end %>
           <p><strong>Date received</strong>: <%= inquiry.created_at.to_date %></p>
         </div>
