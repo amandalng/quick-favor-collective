@@ -57,7 +57,11 @@
   </table>
 
 
-  <h5 class="text-center mt-2 mb-3"><strong>Verified Members</strong></h5>
+  <h5 class="text-center mt-2 mb-1"><strong>Verified Members</strong></h5>
+
+  <div class="center mb-4">
+    <%= link_to 'Download as .xlsx', users_path(current_user, format: :xlsx) %>
+  </div>
 
   <% end %>
 
