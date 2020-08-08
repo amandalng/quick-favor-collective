@@ -5,6 +5,7 @@ class Referral < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true
   validates :user, presence: true
+  validates :friend, acceptance: { message: 'must be awesome' }
 
   def full_name
     "#{first_name} #{last_name}"
