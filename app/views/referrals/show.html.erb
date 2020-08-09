@@ -1,7 +1,9 @@
 <div class="container">
-
   <h2 class="mb-4 text-center">&#128232; Invite sent! &#128232;</h2>
 
   <p class="text-center"><%= @referral.full_name %> will be receiving an invite in no time. Thanks for helping to grow our network!</p>
 
+  <div class="center">
+    <%= link_to "See all members", users_path, class: "mt-4" %>
+  </div>
 </div>
