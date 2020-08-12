@@ -12,7 +12,7 @@
     This philosophy and behavior is contagious, and by paying it forward, the return on a favor fulfilled could be exponential.
     </p>
 
-    <h4 class="mt-5 mb-3 text-center">Ground Rules</h4>
+    <h4 class="mt-5 mb-4 text-center">Our Values</h4>
 
     <ul>
       <li class="mb-2"><strong>We value reciprocity</strong>: Please aim to complete favors for others - our network is only as powerful as your willingness to help &#127867;</li>
@@ -20,6 +20,12 @@
       <li class="mb-2"><strong>We value privacy</strong>: No contact information will be shared beyond your LinkedIn account (should you choose to provide it).</li>
       <li class="mb-2"><strong>We <i>don't</i> value spam and &#129324;</strong>: Favor requests submitted online will automatically go out via email to all members. Ideally, wait a day after receiving a new request to submit one of your own.</li>
     </ul>
+
+    <div class="center mt-5">
+      <div class="d-flex">
+        <p><strong>Want in?&nbsp; </strong></p> <%= link_to "Contact us", root_path(anchor: 'contact'), class: "font-weight-bold" %>&nbsp;&#128522;
+      </div>
+    </div>
   </div>
 </div>
 
@@ -28,10 +34,8 @@
     <% if user_signed_in? %>
       <h3 class="text-center my-4">Need some help?</h3>
     <% else %>
-      <h3 class="text-center my-4">Contact Us</h3>
+      <h3 class="text-center my-4">We'd love to connect</h3>
     <% end %>
-
-    <p class="text-center mb-4">We'd love to hear from you!</p>
 
     <%= simple_form_for @inquiry do |f| %>
       <% if user_signed_in? == false %>
@@ -49,6 +53,6 @@
         <%= f.button :submit, 'Submit', class: "btn btn-primary btnHomeLight mt-4" %>
       </div>
     <% end %>
-
   </div>
+
 </div>
