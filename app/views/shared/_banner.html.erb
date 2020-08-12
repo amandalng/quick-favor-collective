@@ -6,11 +6,14 @@
   <h5 class="my-1 text-center homeDesc">We’re a close community of passionate do’ers looking to help each other out with quick favors!</h5>
 
   <div class="center my-5">
-    <div>
-     <%= link_to "Login", new_user_session_path, class: "btn btn-primary btnHome" %>
-     <%= link_to "Learn more", about_path, class: "btn btn-primary ml-1 btnHome"  %>
-    </div>
+    <%= link_to "Login", new_user_session_path, class: "btn btn-primary btnHome" %>
   </div>
 
-  <p class="mt-4 mb-1 text-center quote-tag"><i>“If we create networks with the sole intention of getting something, we won’t succeed. We can’t pursue the benefits of networks; the benefits ensue from investments in meaningful activities and relationships.”</i><br><br>Adam Grant, <i>Give and Take</i></p>
+
+  <div class="arrow text-center">
+    <a href="#learn-more">
+      <p>Learn More</p>
+      <i class="fas fa-chevron-down mt-0"></i>
+    </a>
+  </div>
 </div>

@@ -16,6 +16,7 @@
     <%#= render 'shared/flashes' %>
     <% if @home == true %>
       <%= render 'shared/banner' %>
+      <%= yield %>
     <% else %>
       <% if @about == true %>
         <%= render 'shared/navbar' %>

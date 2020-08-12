@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @home = true
+    @inquiry = Inquiry.new
   end
 
   def about

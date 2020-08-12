@@ -2,7 +2,7 @@
   width: 100vw;
   height: 100vh;
   margin-top: 0px;
-  padding-top: 100px;
+  padding-top: 200px;
   padding-left: 5%;
   padding-right: 5%;
   background-image: linear-gradient(to bottom, #507A8C, #D5E6EE);
@@ -20,6 +20,16 @@
 .banner h5,
 .banner h6 {
   color: $white;
+}
+
+.homeWelcome {
+  letter-spacing: 6px;
+}
+
+.homeDesc {
+  letter-spacing: 2px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .quote-tag {
@@ -41,6 +51,28 @@
   width: 70%;
 }
 
+.arrow {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.arrow p {
+  font-size: 20px;
+  margin-bottom: 36px;
+}
+
+.fa-chevron-down {
+  animation: bounce 2s infinite;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 @media(max-width: 768px) {
   .logoHome {
   display: block;
@@ -53,5 +85,10 @@
   margin-left: auto;
   margin-right: auto;
   width: 80%;
+  }
+
+  .homeDesc {
+    margin-left: 0;
+    margin-right: 0;
   }
 }

@@ -1,1 +1,54 @@
+<div id="learn-more">
+  <div class="container mt-5">
+    <h4 class="mt-4 mb-3 text-center pt-5">About Us</h4>
 
+    <p class="text-center mt-4 mx-3">
+    We started the Quick Favor Club on the premise of Adam Grant's "five-minute favor", popularized in his bestselling book <%= link_to "Give and Take", "https://www.adamgrant.net/give-and-take" %>.
+    The idea behind these <i>quick</i> favors is simple: we can all find ways of adding high value to others’ lives at a low personal cost.
+    </p>
+
+    <p class="text-center">
+    Our network is an <strong>invite-only community of do'ers that believe in helping others <i>conveniently</i> but <i>impactfully</i></strong>.
+    This philosophy and behavior is contagious, and by paying it forward, the return on a favor fulfilled could be exponential.
+    </p>
+
+    <h4 class="mt-5 mb-3 text-center">Ground Rules</h4>
+
+    <ul>
+      <li class="mb-2"><strong>We value reciprocity</strong>: Please aim to complete favors for others - our network is only as powerful as your willingness to help &#127867;</li>
+      <li class="mb-2"><strong>We value your time</strong>: All favors should be quick to fulfill (no more than 5 minutes!) & do-able from a computer or mobile device.</li>
+      <li class="mb-2"><strong>We value privacy</strong>: No contact information will be shared beyond your LinkedIn account (should you choose to provide it).</li>
+      <li class="mb-2"><strong>We <i>don't</i> value spam and &#129324;</strong>: Favor requests submitted online will automatically go out via email to all members. Ideally, wait a day after receiving a new request to submit one of your own.</li>
+    </ul>
+  </div>
+</div>
+
+<div id="contact">
+  <div class="container">
+    <% if user_signed_in? %>
+      <h3 class="text-center my-4">Need some help?</h3>
+    <% else %>
+      <h3 class="text-center my-4">Contact Us</h3>
+    <% end %>
+
+    <p class="text-center mb-4">We'd love to hear from you!</p>
+
+    <%= simple_form_for @inquiry do |f| %>
+      <% if user_signed_in? == false %>
+        <%= f.input :first_name, required: true %>
+        <%= f.input :last_name, required: true %>
+        <%= f.input :email, required: true %>
+        <%= f.input :subject, collection: [ "Interested to join", "Interested to learn more", "Other" ] %>
+        <%= f.input :message, :as => :text, :input_html => { 'rows' => 2 } %>
+      <% else %>
+        <%= f.input :subject, collection: [ "Requesting an introduction", "Problem with application", "General question", "Other" ] %>
+        <%= f.input :message, hint: "If you'd like an introduction, please include the full name of the person you'd like to be introduced to and a quick statement of why", :as => :text, :input_html => { 'rows' => 4 }, required: true %>
+      <% end %>
+
+      <div class="center">
+        <%= f.button :submit, 'Submit', class: "btn btn-primary btnHomeLight mt-4" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

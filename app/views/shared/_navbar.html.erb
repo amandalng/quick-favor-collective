@@ -55,13 +55,13 @@
         <% end %>
       <% else %>
         <li class="nav-item">
-          <%= link_to about_path, class: "text-right mr-3 nav-link-button" do %>
-            <i class="fas fa-home"></i> &nbsp; About the QFC
+          <%= link_to root_path(anchor: 'learn-more'), class: "text-right mr-3 nav-link-button" do %>
+            <i class="fas fa-home"></i> &nbsp; About Us
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to contact_path, class: "text-right mr-3 nav-link-button" do %>
-            <i class="fas fa-comments"></i> &nbsp; Contact Us
+          <%= link_to root_path(anchor: 'contact'), class: "text-right mr-3 nav-link-button" do %>
+            <i class="fas fa-comments"></i> &nbsp; Contact
           <% end %>
         </li>
         <li class="nav-item">
