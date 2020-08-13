@@ -6,10 +6,10 @@ wb.styles do |style|
 
   wb.add_worksheet(name: "Members") do |sheet|
     # Create the header row
-    sheet.add_row ["ID", "Status", "Admin", "First name", "Last name", "Age", "City", "Country", "Industry", "Email", "LinkedIn", "Background", "Referrer"]
+    sheet.add_row ["ID", "Status", "Admin", "First name", "Last name", "Age", "City", "Country", "Industry", "Email", "Website", "LinkedIn", "Background", "Referrer"]
     # Create entries for each item
     @users.each do |member|
-      sheet.add_row [member.id, member.status, member.admin, member.first_name, member.last_name, member.birthdate, member.city, member.country, member.industry, member.email, member.linkedin, member.oneliner, member.referrer ]
+      sheet.add_row [member.id, member.status, member.admin, member.first_name, member.last_name, member.birthdate, member.city, member.country, member.industry, member.email, member.website, member.linkedin, member.oneliner, member.referrer ]
     end
   end
 end
