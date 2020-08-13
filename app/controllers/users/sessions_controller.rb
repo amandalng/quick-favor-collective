@@ -2,6 +2,13 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  # before_action :require_login
+
+  def require_login
+    if user_signed_in? == false
+      redirect_to new_user_session_path
+    end
+  end
 
   # GET /resource/sign_in
   # def new
@@ -19,6 +26,8 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   def index
+    require_login
+
     @unhide_referralnavbar = true
     @users = User.all.sort_by &:first_name
     @referrals = Referral.all
@@ -59,6 +68,7 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def show
+    require_login
     @user = User.find(params[:id])
   end
 
