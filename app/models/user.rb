@@ -20,7 +20,7 @@ class User < ApplicationRecord
   has_many :responses
   has_one_attached :photo
 
-
+  before_save :capitalize_names
   after_create :send_welcome_email, :send_new_applicant_notification
 
   def full_name
@@ -31,6 +31,11 @@ class User < ApplicationRecord
     Date.today.year - birthdate.year
   end
 
+  def capitalize_names
+    self.first_name = first_name.titleize
+    self.last_name = last_name.titleize
+    self.city = city.titleize
+  end
 
   private
 

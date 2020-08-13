@@ -1,3 +1,5 @@
+<% if current_user.status == "verified" %>
+
 <div class="container">
 
   <h2 class="text-center mb-3">&#129308; Our Community &#129307;</h2>
@@ -102,6 +104,15 @@
   </table>
 
 </div>
+
+<% else %>
+
+<div class="container p-5">
+  <p class="text-center">Thanks for signing up for the Quick Favor Club - we're excited to have you join and contribute to our community of do'ers!</p>
+  <p class="text-center">Sit tight - your account is being verified. Once that's done, the account will be activated and you'll be granted full access to the club! &#128522;</p>
+</div>
+
+<% end %>
 
 <%= javascript_pack_tag "search" %>
 <%= javascript_pack_tag "link" %>
