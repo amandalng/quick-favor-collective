@@ -9,7 +9,7 @@ wb.styles do |style|
     sheet.add_row ["ID", "Status", "First name", "Last name", "Age", "City", "Country", "Industry", "Email", "LinkedIn", "Background", "Referrer"]
     # Create entries for each item
     @users.each do |member|
-      sheet.add_row [member.id, member.status, member.first_name, member.last_name, member.age, member.city, member.country, member.industry, member.email, member.linkedin, member.oneliner, member.referrer ]
+      sheet.add_row [member.id, member.status, member.first_name, member.last_name, member.birthdate, member.city, member.country, member.industry, member.email, member.linkedin, member.oneliner, member.referrer ]
     end
   end
 end
