@@ -16,7 +16,7 @@
 <% end %>
 
 
-<% if @unhide_referralnavbar == true %>
+<% if @unhide_referralnavbar == true && current_user.status == "verified" %>
   <div class="bottom-navbar">
     <div class="addIcon my-3">
       <%= link_to new_user_referral_path(current_user) do %>
