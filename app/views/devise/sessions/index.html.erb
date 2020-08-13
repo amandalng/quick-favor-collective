@@ -5,64 +5,64 @@
   <h6 class="mt-0 mb-1 text-center">We are a global network of</h6>
   <h5 class="mt-0 mb-4 text-center"><strong><%= @user_names.count %> members across <%= @cities.count %> cities</strong></h5>
 
-  <% if current_user.admin == true %>
-
-  <h5 class="text-center mt-3"><strong>Unverified Members</strong> <i class="fas fa-exclamation-circle"></i></h5>
-  <% if User.find_by_status("unverified").nil? %>
-    <p class="text-center mb-2">No new users to verify.</p>
-  <% end %>
-
-  <div class="center">
-    <%= link_to "See Referrals", referrals_path, class: "mb-3" %>
-  </div>
-
-  <table class="table align-middle">
-    <tbody>
-      <% @users.each do |user| %>
-        <% if user.status == "unverified" %>
-          <tr data-link="<%= user_path(user) %>" >
-            <td class="city-industry">
-              <div class="d-flex align-items-center mb-2">
-                <div class="avatar-small">
-                  <% if user.photo.attached? %>
-                    <%= cl_image_tag user.photo.key, height: 45, width: 45, crop: :fill, format: :png, class: "avatar-small" %>
-                  <% else %>
-                    <img src="https://res.cloudinary.com/dy9chfa8l/image/upload/v1593341330/profile-avatar_3x_pxypn2.png" class="avatar-small" alt="profile-image">
-                  <% end %>
-                </div>
-                <div class="ml-3">
-                  <p class="user-name my-0"><strong><%= user.full_name %></strong></p>
-                  <div class="my-1"><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag" style="display:none"><%= user.country %></a><a class="city-industry-tag ml-0"><%= user.industry %></a></div>
-                </div>
-              </div>
-              <p class="mb-1"><%= user.oneliner %></p>
-              <p class="mb-1"><strong>Fun fact:</strong> <%= user.funfact %></p>
-              <p class="mb-2"><strong>Age:</strong> <%= user.age %></p>
-              <% if @user_names.include?(user.referrer) %>
-                <div class="d-flex">
-                  <p class="flex-grow-1"><strong>Referred by:</strong> <%= user.referrer %> <i class="fas fa-check-circle"></i></p>
-                  <%= link_to "Verify", user_path(user), class: "mr-1", method: "patch", :data => { :confirm => "Are you sure you want to verify this member?", turbolinks: false }  %> | <%= link_to "Reject", user_path(user), class: "ml-1", method: "put", :data => { :confirm => "Are you sure you want to reject this member?", turbolinks: false }  %>
-                </div>
-              <% else %>
-                <div class="d-flex">
-                  <p class="flex-grow-1"><strong>Referred by:</strong> <%= user.referrer %> <i class="fas fa-times-circle"></i></p>
-                  <%= link_to "Verify", user_path(user), class: "mr-1", method: "patch", :data => { :confirm => "Are you sure you want to verify this member?", turbolinks: false }  %> | <%= link_to "Reject", user_path(user), class: "ml-1", method: "put", :data => { :confirm => "Are you sure you want to reject this member?", turbolinks: false }  %>
-                </div>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
+  <% if user_signed_in? %>
+    <% if current_user.admin == true %>
+      <h5 class="text-center mt-3"><strong>Unverified Members</strong> <i class="fas fa-exclamation-circle"></i></h5>
+      <% if User.find_by_status("unverified").nil? %>
+        <p class="text-center mb-2">No new users to verify.</p>
       <% end %>
-    </tbody>
-  </table>
+
+      <div class="center">
+        <%= link_to "See Referrals", referrals_path, class: "mb-3" %>
+      </div>
+
+      <table class="table align-middle">
+        <tbody>
+          <% @users.each do |user| %>
+            <% if user.status == "unverified" %>
+              <tr data-link="<%= user_path(user) %>" >
+                <td class="city-industry">
+                  <div class="d-flex align-items-center mb-2">
+                    <div class="avatar-small">
+                      <% if user.photo.attached? %>
+                        <%= cl_image_tag user.photo.key, height: 45, width: 45, crop: :fill, format: :png, class: "avatar-small" %>
+                      <% else %>
+                        <img src="https://res.cloudinary.com/dy9chfa8l/image/upload/v1593341330/profile-avatar_3x_pxypn2.png" class="avatar-small" alt="profile-image">
+                      <% end %>
+                    </div>
+                    <div class="ml-3">
+                      <p class="user-name my-0"><strong><%= user.full_name %></strong></p>
+                      <div class="my-1"><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag" style="display:none"><%= user.country %></a><a class="city-industry-tag ml-0"><%= user.industry %></a></div>
+                    </div>
+                  </div>
+                  <p class="mb-1"><%= user.oneliner %></p>
+                  <p class="mb-1"><strong>Fun fact:</strong> <%= user.funfact %></p>
+                  <p class="mb-2"><strong>Age:</strong> <%= user.age %></p>
+                  <% if @user_names.include?(user.referrer) %>
+                    <div class="d-flex">
+                      <p class="flex-grow-1"><strong>Referred by:</strong> <%= user.referrer %> <i class="fas fa-check-circle"></i></p>
+                      <%= link_to "Verify", user_path(user), class: "mr-1", method: "patch", :data => { :confirm => "Are you sure you want to verify this member?", turbolinks: false }  %> | <%= link_to "Reject", user_path(user), class: "ml-1", method: "put", :data => { :confirm => "Are you sure you want to reject this member?", turbolinks: false }  %>
+                    </div>
+                  <% else %>
+                    <div class="d-flex">
+                      <p class="flex-grow-1"><strong>Referred by:</strong> <%= user.referrer %> <i class="fas fa-times-circle"></i></p>
+                      <%= link_to "Verify", user_path(user), class: "mr-1", method: "patch", :data => { :confirm => "Are you sure you want to verify this member?", turbolinks: false }  %> | <%= link_to "Reject", user_path(user), class: "ml-1", method: "put", :data => { :confirm => "Are you sure you want to reject this member?", turbolinks: false }  %>
+                    </div>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
 
 
-  <h5 class="text-center mt-2 mb-1"><strong>Verified Members</strong></h5>
+      <h5 class="text-center mt-2 mb-1"><strong>Verified Members</strong></h5>
 
-  <div class="center mb-4">
-    <%= link_to 'Download as .xlsx', users_path(current_user, format: :xlsx) %>
-  </div>
-
+      <div class="center mb-4">
+        <%= link_to 'Download as .xlsx', users_path(current_user, format: :xlsx) %>
+      </div>
+    <% end %>
   <% end %>
 
   <input type="name" placeholder="Find a member..." class="form-control mt-2 mb-2" id="userSearch" >
