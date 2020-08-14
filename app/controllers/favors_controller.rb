@@ -42,6 +42,7 @@ class FavorsController < ApplicationController
     end
 
     @favors = Favor.all.sort_by(&:created_at).reverse
+    @response = Response.new
   end
 
   def edit

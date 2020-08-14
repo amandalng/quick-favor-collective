@@ -47,10 +47,10 @@
                 <p class="request-date mb-4">Requested on <%= favor.created_at.to_date.to_formatted_s(:long_ordinal) %></p>
                 <%= link_to "Edit favor", edit_favor_path(favor), class: "btn-see favor-message" %>
               <% end %>
-
             </div>
           <% end %>
       <% end %>
+
     </div>
   <% else %>
     <h4 class="text-center mb-3">Thanks for registering for the Quick Favor Club!</h4>
