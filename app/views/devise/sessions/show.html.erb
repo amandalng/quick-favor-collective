@@ -27,10 +27,10 @@
       <% end %>
 
       <% if @user.linkedin.present? %>
-        <p class="mt-0"><i class="fab fa-linkedin"></i> &nbsp;<a href=<%= @user.linkedin %> target="_blank">See profile</a></p>
+        <p class="mt-0 mb-0"><i class="fab fa-linkedin"></i> &nbsp;<a href=<%= @user.linkedin %> target="_blank">See profile</a></p>
       <% end %>
 
-      <p class="mt-0 text-center"><i class="fas fa-history"></i> &nbsp;<a href=<%= user_favors_path(@user) %>>See <%= @user.first_name %>'s past favors</a></p>
+      <p class="mt-2 text-center"><i class="fas fa-history"></i> &nbsp;<a href=<%= user_favors_path(@user) %>>See <%= @user.first_name %>'s past favors</a></p>
 
 
       <% if current_user.admin == true %>
