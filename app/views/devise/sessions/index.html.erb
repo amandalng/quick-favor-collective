@@ -31,6 +31,7 @@
                   </div>
                   <div class="ml-3">
                     <p class="user-name my-0"><strong><%= user.full_name %></strong></p>
+                  </div>
                     <div class="my-1"><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag" style="display:none"><%= user.country %></a><a class="city-industry-tag ml-0"><%= user.industry %></a></div>
                   </div>
                 </div>
@@ -90,8 +91,8 @@
                     <img src="https://res.cloudinary.com/dy9chfa8l/image/upload/v1593341330/profile-avatar_3x_pxypn2.png" class="avatar-small" alt="profile-image">
                   <% end %>
                 </div>
-                <div class="ml-3">
-                  <p class="user-name my-0"><strong><%= user.full_name %></strong></p>
+                <div class="ml-3 flex-grow-1">
+                  <p class="user-name my-0 flex-grow-1"><strong><%= user.full_name %></strong></p>
                   <div class="my-1"><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag" style="display:none"><%= user.country %></a><a class="city-industry-tag ml-0"><%= user.industry %></a></div>
                 </div>
               </div>

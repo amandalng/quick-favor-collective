@@ -20,6 +20,9 @@ class User < ApplicationRecord
   has_many :responses
   has_one_attached :photo
 
+  has_many :requester, class_name: "Request", foreign_key: "requesting_user_id"
+  has_many :requested, class_name: "Request", foreign_key: "user_id"
+
   before_save :capitalize_names
   after_create :send_welcome_email, :send_new_applicant_notification
 

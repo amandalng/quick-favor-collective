@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :users, only: [ :show ] do
     resources :favors, only: [ :new, :create ]
     resources :referrals, only: [ :new, :create, :show ]
+    resources :requests, only: [ :new, :create, :show ]
     get '/favors', to: 'favors#favors'
   end
   resources :referrals, only: [ :index, :show ]

@@ -70,6 +70,10 @@ class Users::SessionsController < Devise::SessionsController
   def show
     require_login
     @user = User.find(params[:id])
+
+    @request = Request.new
+    @requesting_user = current_user
+    @requested_user = User.find(params[:id])
   end
 
   # protected

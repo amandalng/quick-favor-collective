@@ -59,10 +59,41 @@
           <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
         </div>
       <% end %>
-      <% if @user != current_user && current_user.admin == false %>
-        <%= link_to "Want an introduction?", contact_path, class: "btn btn-primary btn-block mt-4" %>
+      <% if @user != current_user %>
+        <button type="button" class="btn btn-primary btn-block mt-4" data-toggle="modal" data-target="#requestModal" href="#">
+          <i class="fas fa-coffee"></i> &nbsp;Let's grab a coffee!
+        </button>
       <% end %>
 
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Ask <%= @user.first_name %> for a coffee chat!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <%= simple_form_for [@requesting_user, @request], url: user_requests_path(@requested_user, @request) do |f| %>
+            <%= f.input :intro, label: "Make a quick introduction for yourself", hint: "Feel free to take from your profile one-liner: #{current_user.oneliner}", :as => :text, :input_html => { 'rows' => 2 } %>
+            <%= f.input :purpose, label: "What would you like to chat about?", :as => :text, :input_html => { 'rows' => 2 } %>
+            <p class="text-center"><strong>Please fill all fields or your request will not be sent!</strong></p>
+            <div class="center">
+              <div class="d-flex">
+                <%= f.button :submit, "Request a coffee chat!", class: "btn-modal-submit btn btn-primary btn-block mt-3 px-4" %>
+              </div>
+            </div>
+            <% end %>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
