@@ -34,9 +34,9 @@
               <p class="mt-2 mb-1 text-center"><strong>Importance</strong></p>
               <p class="mt-0 pb-1 mb-0"><%= favor.significance %></p>
               <% if favor.user != current_user %>
-                <p class="request-date mb-5">Requested on <%= favor.created_at %></p>
+                <p class="request-date mb-5">Requested on <%= favor.created_at.to_date.to_formatted_s(:long_ordinal) %></p>
               <% else %>
-                <p class="request-date mb-4">Requested on <%= favor.created_at %></p>
+                <p class="request-date mb-4">Requested on <%= favor.created_at.to_date.to_formatted_s(:long_ordinal) %></p>
                 <%= link_to "Edit favor", edit_favor_path(favor), class: "btn-see favor-message" %>
               <% end %>
 

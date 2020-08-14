@@ -24,6 +24,7 @@
       <p><strong>Link:</strong> <a id="link" href=<%= @favor.link %>>
       <%= @favor.link.first(28) %></a><% if @favor.link.length > 28 %>...<% end %></p>
     <% end %>
+    <p class="request-date">Requested on <%= @favor.created_at.to_date.to_formatted_s(:long_ordinal) %></p>
     <br>
     <p class="text-center"><strong>More about <%= link_to @favor.user.first_name, user_path(@favor.user) %>:</strong></p>
     <p><strong>Contact:</strong> <%= @favor.user.email %></p>
