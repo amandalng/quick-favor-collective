@@ -40,12 +40,11 @@
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to inquiries_path, class: "text-right mr-3 nav-link-button" do %>
-                <i class="fas fa-comments"></i> &nbsp; Inquiries
+              <%= link_to admin_path, class: "text-right mr-3 nav-link-button" do %>
+                <i class="fas fa-shield-alt"></i> &nbsp; Admin
               <% end %>
             </li>
           <% end %>
-
         <% else %>
           <li class="nav-item">
             <%= link_to destroy_user_session_path, method: :delete, class: "text-right mr-3 nav-link-button" do %>

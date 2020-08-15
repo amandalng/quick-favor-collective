@@ -15,7 +15,7 @@
       <%= f.input :email, required: true %>
     <% else %>
       <%= f.input :subject, collection: [ "Requesting an introduction", "Problem with application", "General question", "Other" ] %>
-      <%= f.input :message, hint: "If you'd like an introduction, please include the full name of the person you'd like to be introduced to and a quick statement of why", :as => :text, :input_html => { 'rows' => 4 }, required: true %>
+      <%= f.input :message, :as => :text, :input_html => { 'rows' => 4 }, required: true %>
     <% end %>
 
     <div class="center">

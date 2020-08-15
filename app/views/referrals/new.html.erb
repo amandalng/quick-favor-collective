@@ -1,12 +1,12 @@
 <div class="container">
   <h2 class="mb-4 text-center">Invite a Friend</h2>
 
-  <p class="mb-4 text-center">Thanks for helping to grow our network! Any friend you refer will receive an email invitation to sign up for the QFC.</p>
+  <p class="mb-4 text-center">Thanks for helping to grow our community! Any friend you refer will receive an email invitation to sign up for the QFC.</p>
 
   <%= simple_form_for [current_user, @referral] do |f| %>
     <%= f.input :first_name %>
     <%= f.input :last_name %>
-    <%= f.input :email, label: "What is your friend's email address?" %>
+    <%= f.input :email, label: "What's your friend's email address?" %>
     <br>
     <%= f.input :friend, as: :boolean, label: "I guarantee my friend is awesome (and would be a great contributor to the Club!)" %>
     <br>

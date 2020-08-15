@@ -36,9 +36,11 @@
       <% if current_user.admin == true %>
         <p class="mb-0"><strong>Status</strong>:
           <% if @user.status == "verified" %>
-            Verified Member
+            Verified
+          <% elsif @user.status == "unverified" %>
+            Unverified
           <% else %>
-            Unverified Applicant <i class="fas fa-exclamation-circle"></i>
+            Rejected
           <% end %>
         </p>
         <p><strong>Referred by</strong>: <%= @user.referrer %></p>
@@ -59,7 +61,7 @@
           <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
         </div>
       <% end %>
-      <% if @user != current_user %>
+      <% if @user != current_user && @user.status != "rejected" %>
         <button type="button" class="btn btn-primary btn-block mt-4" data-toggle="modal" data-target="#requestModal" href="#">
           <i class="fas fa-coffee"></i> &nbsp;Let's grab a coffee!
         </button>

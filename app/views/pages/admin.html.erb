@@ -1,0 +1,17 @@
+<% if current_user.status == "verified" && current_user.admin == true %>
+
+  <div class="container">
+    <h3 class="text-center mb-4">QFC Admin</h3>
+
+    <%= link_to "Manage Members", membership_path, class: "btn btn-main btn-block mb-3" %>
+    <%= link_to "Manage Referrals", referrals_path, class: "btn btn-main btn-block mb-3" %>
+    <%= link_to "Manage Inquiries", inquiries_path, class: "btn btn-main btn-block mb-3" %>
+  </div>
+
+<% else %>
+
+  <div class="container pt-5">
+    <p class="text-center">Oops! You're not allowed here. &#128584;</p>
+  </div>
+
+<% end %>

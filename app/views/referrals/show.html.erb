@@ -1,9 +1,11 @@
 <div class="container">
-  <h2 class="mb-4 text-center">&#128232; Invite sent! &#128232;</h2>
 
-  <p class="text-center"><%= @referral.full_name %> will be receiving an invite in no time. Thanks for helping to grow our network!</p>
+  <h2 class="text-center mt-5 mb-4 animate__animated animate__rotateIn success"><i class="far fa-check-circle"></i></h2>
+  <h3 class="mb-2 text-center">Invite sent!</h3>
+
+  <p class="text-center"><%= @referral.first_name %> has just an invitation to join our community.</p>
 
   <div class="center">
-    <%= link_to "See all members", users_path, class: "mt-4" %>
+    <%= link_to "< see all members", users_path, class: "mt-4" %>
   </div>
 </div>

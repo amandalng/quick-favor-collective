@@ -1,7 +1,6 @@
 <div class="container">
-<h2 class="mb-4 text-center">&#128079; Favor submitted! &#128079;</h2>
-
-<p class="center">Here's what everyone gets to see:</p>
+  <h2 class="text-center mb-4 animate__animated animate__rotateIn"><i class="far fa-check-circle success"></i></h2>
+  <h4 class="mb-4 text-center">Favor submitted!</h4>
 
   <div class="favor-container mb-3">
     <%= link_to user_path(@favor.user), :action => 'go' do %>
@@ -28,11 +27,13 @@
         <strong>Link:</strong>
         <a id="link" href=<%= @favor.link %>><%= @favor.link.first(28) %></a><% if @favor.link.length > 28 %>...<% end %></p>
     <% end %>
-    <br>
-    <p class="text-center"><strong>More about <%= link_to @favor.user.first_name, user_path(@favor.user) %>:</strong></p>
+
+    <p class="text-center mt-3"><strong>More about <%= link_to @favor.user.first_name, user_path(@favor.user) %>:</strong></p>
     <p><strong>Contact:</strong> <%= @favor.user.email %></p>
     <p><strong>One-liner:</strong> <%= @favor.introduction %></p>
     <p><strong>Fun fact:</strong> <%= @favor.user.funfact %></p>
+
+    <p class="request-date">Requested on <%= @favor.created_at.to_date.to_formatted_s(:long_ordinal) %></p>
   </div>
 
 

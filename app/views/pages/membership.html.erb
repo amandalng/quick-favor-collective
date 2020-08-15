@@ -1,13 +1,14 @@
-<% if current_user.status == "verified" %>
+<% if current_user.status == "verified" && current_user.admin == true %>
 
-<div class="container">
+  <div class="container">
 
-  <h2 class="text-center mb-3">&#129308; Our Community &#129307;</h2>
+    <h2 class="text-center mb-2">Manage Members</h2>
 
-  <h6 class="mt-0 mb-1 text-center">We are a global network of</h6>
-  <h5 class="mt-0 mb-4 text-center"><strong><%= @user_names.count %> members across <%= @cities.count %> cities</strong></h5>
-  <% if current_user.admin == true %>
-    <h5 class="text-center mt-3"><strong>Unverified Members</strong></h5>
+    <div class="center mb-4">
+      <%= link_to 'Export member data (.xlsx)', users_path(current_user, format: :xlsx) %>
+    </div>
+
+    <h5 class="text-center mt-3"><strong>Unverified Applicants</strong></h5>
     <% if User.find_by_status("unverified").nil? %>
       <p class="text-center mb-2">No new users to verify.</p>
     <% end %>
@@ -52,60 +53,19 @@
         <% end %>
       </tbody>
     </table>
-  <h5 class="text-center mt-2 mb-1"><strong>Verified Members</strong></h5>
-  <% end %>
 
-  <input type="name" placeholder="Find a member..." class="form-control mt-2 mb-2" id="userSearch" >
+    <h5 class="text-center mt-3"><strong>Rejected Applicants</strong></h5>
+    <div class="center">
+      <%= link_to "View rejected applicants", rejects_path %>
+    </div>
 
-  <select id="countries" name="countries" class="btn-dropdown btn-block">
-    <option> All countries </option>
-    <% @countries.sort.each do |country| %>
-      <option value= <%= country %>> <%= country %> </option>
-    <% end %>
-  </select>
-
-  <select id="industries" name="industries" class="btn-dropdown btn-block mb-2">
-    <option> All industries </option>
-    <% @industries.sort.each do |industry| %>
-      <option value= <%= industry %>> <%= industry %> </option>
-    <% end %>
-  </select>
-
-  <table class="table align-middle" id="userTable">
-    <tbody>
-      <% @users.each do |user| %>
-        <% if user.status == "verified" %>
-          <tr data-link="<%= user_path(user) %>" class="userRow" >
-            <td class="city-industry">
-              <div class="d-flex align-items-center mb-2">
-                <div class="avatar-small">
-                  <% if user.photo.attached? %>
-                    <%= cl_image_tag user.photo.key, height: 45, width: 45, crop: :fill, format: :png, class: "avatar-small" %>
-                  <% else %>
-                    <img src="https://res.cloudinary.com/dy9chfa8l/image/upload/v1593341330/profile-avatar_3x_pxypn2.png" class="avatar-small" alt="profile-image">
-                  <% end %>
-                </div>
-                <div class="ml-3 flex-grow-1">
-                  <p class="user-name my-0 flex-grow-1"><strong><%= user.full_name %></strong></p>
-                  <div class="my-1"><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag" style="display:none"><%= user.country %></a><a class="city-industry-tag ml-0"><%= user.industry %></a></div>
-                </div>
-              </div>
-              <p class="mb-2"><%= user.oneliner %></p>
-            </td>
-          </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
-
-</div>
+  </div>
 
 <% else %>
 
-<div class="container pt-5">
-  <p class="text-center">Thanks for signing up for the Quick Favor Club - we're excited to have you join and contribute to our community of do'ers!</p>
-  <p class="text-center">Sit tight - your account is being verified. Once that's done, the account will be activated and you'll be granted full access to the club! &#128522;</p>
-</div>
+  <div class="container pt-5">
+    <p class="text-center">Oops! You're not allowed here. &#128584;</p>
+  </div>
 
 <% end %>
 

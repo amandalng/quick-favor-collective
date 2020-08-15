@@ -31,7 +31,11 @@ class User < ApplicationRecord
   end
 
   def age
-    Date.today.year - birthdate.year
+    if birthdate.present?
+      Date.today.year - birthdate.year
+    else
+      "NA"
+    end
   end
 
   def capitalize_names

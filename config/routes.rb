@@ -29,4 +29,7 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
   get '/join', to: 'pages#join'
   get '/contact', to: 'pages#contact'
+  get '/admin', to: 'pages#admin'
+  get '/membership', to: 'pages#membership'
+  get '/rejects', to: 'pages#rejects'
 end

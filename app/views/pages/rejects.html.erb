@@ -1,0 +1,48 @@
+<% if current_user.status == "verified" && current_user.admin == true %>
+
+  <div class="container">
+
+    <h5 class="text-center mt-3 mb-4"><strong>Rejected Applicants</strong></h5>
+
+    <input type="name" placeholder="Find applicant..." class="form-control mt-2 mb-2" id="userSearch" >
+
+    <table class="table align-middle" id="userTable">
+      <tbody>
+        <% @users.each do |user| %>
+          <% if user.status == "rejected" %>
+            <tr data-link="<%= user_path(user) %>" class="userRow" >
+              <td class="city-industry">
+                <div class="d-flex align-items-center mb-2">
+                  <div class="avatar-small">
+                    <% if user.photo.attached? %>
+                      <%= cl_image_tag user.photo.key, height: 45, width: 45, crop: :fill, format: :png, class: "avatar-small" %>
+                    <% else %>
+                      <img src="https://res.cloudinary.com/dy9chfa8l/image/upload/v1593341330/profile-avatar_3x_pxypn2.png" class="avatar-small" alt="profile-image">
+                    <% end %>
+                  </div>
+                  <div class="ml-3">
+                    <p class="user-name my-0"><strong><%= user.full_name %></strong></p>
+                    <div class="my-1"><a class="city-industry-tag"><%= user.city %></a><a class="city-industry-tag" style="display:none"><%= user.country %></a><a class="city-industry-tag ml-0"><%= user.industry %></a></div>
+                  </div>
+                </div>
+                <p class="mb-1"><%= user.oneliner %></p>
+                <p class="request-date">Signed up on <%= user.created_at.to_date.to_formatted_s(:long_ordinal) %></p>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+
+<% else %>
+
+  <div class="container pt-5">
+    <p class="text-center">Oops! You're not allowed here. &#128584;</p>
+  </div>
+
+<% end %>
+
+<%= javascript_pack_tag "search" %>
+<%= javascript_pack_tag "link" %>
