@@ -32,7 +32,7 @@
             <p class="mb-0"><strong>Posted by</strong>: <%= inquiry.first_name %> <%= inquiry.last_name %></p>
             <p><strong>Contact</strong>: <%= inquiry.email %></p>
           <% end %>
-          <p><strong>Date received</strong>: <%= inquiry.created_at.to_date %></p>
+          <p><strong>Date received</strong>: <%= inquiry.created_at.to_date.to_formatted_s(:long_ordinal) %></p>
           <%= link_to "Mark responded", inquiry_path(inquiry), :method => :patch, data: { confirm: "Are you sure?" }, class: "btn btn-primary btn-block mt-3" %>
         </div>
       <% end %>
@@ -59,7 +59,7 @@
             <p class="mb-0"><strong>Posted by</strong>: <%= inquiry.first_name %> <%= inquiry.last_name %></p>
             <p><strong>Contact</strong>: <%= inquiry.email.first(30) %></p>
           <% end %>
-          <p><strong>Date received</strong>: <%= inquiry.created_at.to_date %></p>
+          <p><strong>Date received</strong>: <%= inquiry.created_at.to_date.to_formatted_s(:long_ordinal) %></p>
         </div>
       <% end %>
     <% end %>
