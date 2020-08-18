@@ -10,8 +10,8 @@ class User < ApplicationRecord
   validates :city, presence: true
   validates :country, presence: true
   validates :industry, presence: true
-  validates :oneliner, presence: true
-  validates :funfact, presence: true
+  validates :oneliner, presence: true, length: { minimum: 50, too_short: "Please expand on this field" }
+  validates :funfact, presence: true, length: { minimum: 25, too_short: "Please expand on this field" }
   validates :referrer, presence: true
   validates :status, presence: true, inclusion: { in: ["unverified", "verified", "rejected"] }
 
