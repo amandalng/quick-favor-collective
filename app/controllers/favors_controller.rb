@@ -43,6 +43,11 @@ class FavorsController < ApplicationController
 
     @favors = Favor.all.sort_by(&:created_at).reverse
     @response = Response.new
+
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
   end
 
   def edit

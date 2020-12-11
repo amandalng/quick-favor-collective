@@ -1,0 +1,15 @@
+wb = xlsx_package.workbook
+
+wb.styles do |style|
+  project_heading = style.add_style(b: true, sz: 14)
+  heading = style.add_style(b:true)
+
+  wb.add_worksheet(name: "Favors") do |sheet|
+    # Create the header row
+    sheet.add_row ["ID", "Created on", "User", "Favor request", "Significance", "Link (if any)", "Countries", "Industries" ]
+    # Create entries for each item
+    @favors.each do |favor|
+      sheet.add_row [favor.id, favor.created_at, favor.user.full_name, favor.favor, favor.significance, favor.link, favor.location, favor.industry ]
+    end
+  end
+end

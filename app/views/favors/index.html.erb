@@ -7,6 +7,12 @@
 
     <% end %>
 
+    <% if @current_user.admin = true %>
+      <div class="center mb-4">
+        <%= link_to 'Export favor data (.xlsx)', favors_path(format: :xlsx) %>
+      </div>
+    <% end %>
+
     <div class="favors">
       <% @favors.each do |favor| %>
           <% if favor.end_date >= Date.today %>
