@@ -8,7 +8,7 @@ class InquiriesController < ApplicationController
     end
 
     if @inquiry.save
-      InquiryMailer.with(inquiry: @inquiry).new_inquiry.deliver_now
+      # InquiryMailer.with(inquiry: @inquiry).new_inquiry.deliver_now
       if user_signed_in?
         redirect_to favors_path
       else
